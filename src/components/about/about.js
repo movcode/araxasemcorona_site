@@ -1,7 +1,7 @@
 import React from 'react';
 import { Background, Box } from '../share_components/global_style';
 import { Text, Title } from '../share_components/global_style';
-import { BoxHow, BoxItem, Img, Div } from './style';
+import { BoxHow, BoxItem, Img } from './style';
 import Center from '../share_components/center';
 import Row from '../share_components/row';
 
@@ -39,8 +39,7 @@ const About = (props) =>
                             <Center>
                                 <Title color="#fff" bottom="20px" size="20px" sizeM="30px">COMERCIANTES </Title>
                             </Center>
-                            <Text color="white" padding="20px">Comerciantes e autônomos cadastram de forma gratutíta o seu negocio em nossa plataforma.</Text>
-                            <Div p="44px" />
+                            <Text color="white" padding="20px">Comerciantes e autônomos cadastram de forma gratutíta o seu negocio em nossa plataforma.</Text>                            
                         </BoxItem>
                     </BoxHow>
 
@@ -52,8 +51,7 @@ const About = (props) =>
                             </Center>
                             <Text color="white" padding="20px">
                                 Entregadores cadastram suas informações em nossa plataforma de forma gratuíta.
-                    </Text>
-                            <Div p="65px" />
+                    </Text>                            
                         </BoxItem>
                     </BoxHow>
                     <BoxHow className="col-md-3">
@@ -65,8 +63,7 @@ const About = (props) =>
                             <Text color="white" padding="20px" >
                                 Através da nossa plataforma indicamos os entregadores para os comerciantes que trabalham com delivery.
                     </Text>
-
-                            <Div p="45px" />
+                            
                         </BoxItem>
                     </BoxHow>
                     <BoxHow className="col-md-3">

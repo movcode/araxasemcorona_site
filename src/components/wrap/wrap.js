@@ -34,11 +34,19 @@ const Wrap = ({ page }) => {
         });
     }, [page]);
 
+
+    console.log(contents);
     return (
         <>
             {!data && <Load />}
             <Menu logo={contents && contents.logo} />
-            <Element name="home"><Component.Home /></Element>
+
+            <Element name="home"><Component.Home
+                title={contents && contents.title_home}
+                subtitle={contents && contents.subtitle_home}
+                text={contents && contents.text_home}
+            /></Element>
+
             <Element name="about"><Component.About /></Element>
             <Element name="establishment"><Component.Establishemtn /></Element>
             <Element name="registry"><Component.Registry /></Element>

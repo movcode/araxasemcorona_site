@@ -16,9 +16,9 @@ const Navbar = ({ logo }) => {
         <BGNav className="col-12">
             <div className="container" >
                 <Nav className="row">
-                    <div className="col-md-3">
+                    <a href="/" className="col-md-3">
                         {logo && <img src={logo} className="img-fluid" alt="logo" />}
-                    </div>
+                    </a>
                     <GroupLink className="col-9 float-right" >
                         <div className="float-right">
                             <NavLink to="/" active={active("/")} >HOME</NavLink>

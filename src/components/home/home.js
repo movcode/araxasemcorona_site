@@ -3,20 +3,18 @@ import { BgHome, LeafBg, BoxTitle, ImgSvg, TitleHome, SubTitleHome } from './sty
 import { Box, Text } from '../share_components/global_style';
 import Row from '../share_components/row';
 
-const Home = props => {
-    
+const Home = ({ title, subtitle, text }) => {
+
     return (
         <BgHome >
             <LeafBg src="img/leaf.png" />
             <Box>
                 <Row>
                     <BoxTitle className="col-md-6">
-                        <TitleHome >ARAXÁ CONTRA</TitleHome>
-                        <SubTitleHome>O CORONAVÍRUS</SubTitleHome>
+                        <TitleHome >{title}</TitleHome>
+                        <SubTitleHome>{subtitle}</SubTitleHome>
 
-                        <Text>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            </Text>
+                        <Text>{text}</Text>
                     </BoxTitle>
 
                     <div className="col-md-6">
