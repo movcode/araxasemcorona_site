@@ -1,7 +1,7 @@
 import axios from 'axios';
 import StorageKeys from './storageKeys';
 
-const local = "http://localhost:3001/";
+// const local = "http://localhost:3001/";
 const prod = "http://ec2-18-231-123-243.sa-east-1.compute.amazonaws.com:3001/";
 
 const BASE_URL = prod;
@@ -29,6 +29,7 @@ export default ({
         approved: `${URL_API}establishment/approved`,
         not_approved: `${URL_API}establishment/approved/`,
         config: `${URL_API}config`,
+        client: `${URL_API}client`,
     },
 
     post: async (url, params, header) =>

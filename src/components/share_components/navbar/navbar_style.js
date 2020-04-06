@@ -6,8 +6,8 @@ import { PrimaryColor,LinkActive, LinkPrimary, LinkHoverPrimary } from '../../..
 export const Image = styled.img`width:${props => props.w + "px"};`;
 
 export const Nav = styled.nav`
-    padding-top:40px;
-    padding-bottom:40px;                    
+    padding-top:5px;
+    padding-bottom:5px;                    
 `;
 
 export const GroupLink = styled.div`

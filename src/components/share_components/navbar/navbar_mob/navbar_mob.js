@@ -8,7 +8,7 @@ import { NavMob, LaunchMenu } from './style_nav_mob';
 import './animation.css';
 
 
-const NavbarMob = props => {
+const NavbarMob = ({ logo }) => {
     const { show } = useSelector(state => state.menu);
     const dispatch = useDispatch();
 
@@ -20,12 +20,14 @@ const NavbarMob = props => {
                 <div className="container">
                     <LaunchMenu >
                         {show === 0 ?
-                            <FontAwesomeIcon  icon={faBars} color="white" size="2x" onClick={() => handleMenu(1)} />
+                            <FontAwesomeIcon icon={faBars} color="white" size="2x" onClick={() => handleMenu(1)} />
                             : <FontAwesomeIcon className="openMenu" icon={faTimes} color="white" size="2x" onClick={() => handleMenu(0)} />}
                     </LaunchMenu>
-                    Logo
+                    <div className="col-5">
+                        {logo && <img src={logo} className="img-fluid" style={{marginTop:"-20px"}} alt="logo" />}
+                    </div>
                 </div>
-                <Menu />
+                <Menu logo={logo}/>
 
             </NavMob>
         </>
