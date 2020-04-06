@@ -1,0 +1,22 @@
+@font-face {
+    font-family: AvenirRegular;
+    src: url(./fonts/AvenirNextCyr/AvenirNextCyr-Regular.woff);
+}
+@font-face {
+    font-family: AvenirThin;
+    src: url(./fonts/AvenirNextCyr/AvenirNextCyr-Thin.woff);
+}
+@font-face {
+    font-family: AvenirBold;
+    src: url(./fonts/AvenirNextCyr/AvenirNextCyr-Bold.woff);
+}
+@font-face {
+    font-family: AvenirLight;
+    src: url(./fonts/AvenirNextCyr/AvenirNextCyr-UltraLight.woff);
+}
+
+body, html {
+    margin: 0;
+    height: 100%;
+}
+
