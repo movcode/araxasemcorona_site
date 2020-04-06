@@ -81,8 +81,8 @@ margin-bottom:20px;
 `;
 
 export const CircularImage = styled.div`
-    width: 90px;
-    height: 90px;
+    width: ${props => !props.fluid && "90px"};
+    height: ${props => !props.fluid && "90px"};
     margin:10px;
     position: relative;
     overflow: hidden;

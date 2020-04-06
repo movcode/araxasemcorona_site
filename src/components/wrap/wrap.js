@@ -10,7 +10,7 @@ var Scroll = require('react-scroll');
 const scroller = Scroll.scroller;
 
 const Wrap = ({ page }) => {
-    const [data, _data] = useState(false);
+    const [sectors, _sectors] = useState(false);
     const [contents, _contents] = useState(false);
 
     useEffect(() => {
@@ -18,10 +18,10 @@ const Wrap = ({ page }) => {
 
         const fetch = async () => {
             const resp = await Api.get(Api.url.client, false);
-            isSubscribe && resp.data && _data(resp.data);
+            isSubscribe && resp.data &&
+                _sectors(resp.data.sectors);
             _contents(resp.data.config[0]);
         }
-
         fetch();
         return () => isSubscribe = false;
     }, []);
@@ -33,12 +33,10 @@ const Wrap = ({ page }) => {
             smooth: true,
         });
     }, [page]);
-
-
-    console.log(contents);
+    
     return (
         <>
-            {!data && <Load />}
+            {!sectors && <Load />}
             <Menu logo={contents && contents.logo} />
 
             <Element name="home"><Component.Home
@@ -47,8 +45,10 @@ const Wrap = ({ page }) => {
                 text={contents && contents.text_home}
             /></Element>
 
-            <Element name="about"><Component.About /></Element>
-            <Element name="establishment"><Component.Establishemtn /></Element>
+            <Element name="about"><Component.About text={contents && contents.text_about} /></Element>
+
+            <Element name="establishment"><Component.Establishemtn sectors={sectors && sectors} /></Element>
+
             <Element name="registry"><Component.Registry /></Element>
             <Element name="contact"><Component.Contact /></Element>
         </>

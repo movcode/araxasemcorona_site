@@ -6,7 +6,7 @@ import Center from '../share_components/center';
 import Row from '../share_components/row';
 
 
-const About = (props) =>
+const About = ({ text }) =>
     <Background bg="white">
 
         <Box bottom="80px">
@@ -14,13 +14,8 @@ const About = (props) =>
 
                 <Row >
                     <div className="col-md-6">
-                        <Title  bottom="40px" >Sobre</Title>
-                        <Text color="black">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                </Text>
+                        <Title bottom="40px" >Sobre</Title>
+                        <Text color="black">{text}</Text>
                     </div>
 
                     <div className="col-md-6">
@@ -39,7 +34,7 @@ const About = (props) =>
                             <Center>
                                 <Title color="#fff" bottom="20px" size="20px" sizeM="30px">COMERCIANTES </Title>
                             </Center>
-                            <Text color="white" padding="20px">Comerciantes e autônomos cadastram de forma gratutíta o seu negocio em nossa plataforma.</Text>                            
+                            <Text color="white" padding="20px">Comerciantes e autônomos cadastram de forma gratutíta o seu negocio em nossa plataforma.</Text>
                         </BoxItem>
                     </BoxHow>
 
@@ -51,7 +46,7 @@ const About = (props) =>
                             </Center>
                             <Text color="white" padding="20px">
                                 Entregadores cadastram suas informações em nossa plataforma de forma gratuíta.
-                    </Text>                            
+                    </Text>
                         </BoxItem>
                     </BoxHow>
                     <BoxHow className="col-md-3">
@@ -63,7 +58,7 @@ const About = (props) =>
                             <Text color="white" padding="20px" >
                                 Através da nossa plataforma indicamos os entregadores para os comerciantes que trabalham com delivery.
                     </Text>
-                            
+
                         </BoxItem>
                     </BoxHow>
                     <BoxHow className="col-md-3">

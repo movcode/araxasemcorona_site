@@ -6,12 +6,12 @@ import { PrimaryColor,LinkActive, LinkPrimary, LinkHoverPrimary } from '../../..
 export const Image = styled.img`width:${props => props.w + "px"};`;
 
 export const Nav = styled.nav`
-    padding-top:5px;
-    padding-bottom:5px;                    
+    padding-bottom:20px;                    
 `;
 
 export const GroupLink = styled.div`
-margin-top:15px;`;
+margin-top:20px;
+`;
 
 export const NavLink = styled(Link)`
 text-decoration: none;
