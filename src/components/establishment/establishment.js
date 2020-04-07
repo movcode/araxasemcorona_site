@@ -1,45 +1,49 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Background, Box, Title } from '../share_components/global_style';
 import Center from '../share_components/center';
-import { CircularImage } from '../share_components/global_style';
-import Row from '../../components/share_components/row';
-import Carousel from '../share_components/carousel';
+import SectorItens from './sectors';
+import CategoriesItens from './categories';
+import ListEstablishment from './list'
+
 
 const Establishment = ({ sectors }) => {
     const [categories, _categories] = useState(false);
+    const [establishments, _establishments] = useState(false);
 
-    console.log(categories);
+    useEffect(() => {
+        sectors && _categories(sectors[0].categories);
+        console.log(sectors);
+    }, [sectors]);
+
     return (
         <Background bg="white" bottom="120">
             <Box bottom="80px">
+
                 <Center>
                     <Title size="60px" sizeM="40px" bottom="60px" > Estabelecimentos</Title>
                 </Center>
 
-                {/* sectors */}
                 <Center>
                     <div className="col-md-6">
-                        <Carousel sectors>
-                            {
-                                sectors && sectors.map(data =>
-                                    <div key={data._id}>
-
-                                        <div className="col-md-12 ">
-                                            <Row>
-                                                <CircularImage
-                                                    onClick={()=>_categories(data.categories)}
-                                                    bg={data.icon}></CircularImage>
-                                            </Row>
-                                            <Center>{data.title}</Center>
-                                        </div>
-
-                                    </div>
-                                )
-                            }
-                        </Carousel>
+                        <SectorItens sectors={sectors}
+                            _establishments={_establishments}
+                            _categories={_categories} />
                     </div>
                 </Center>
 
+                <Center top="80px">
+                    <div className="col-md-8">
+                        <CategoriesItens categories={categories} _establishments={_establishments} />
+                    </div>
+                </Center>
+
+
+                <Center>
+                    <div className="col-md-8">
+                        <ListEstablishment establishments={establishments} />
+
+                    </div>
+                </Center>
             </Box>
         </Background>
     );
