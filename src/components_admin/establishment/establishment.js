@@ -38,6 +38,7 @@ export default props => {
         dispatch(change(FormName, "delivery", data.delivery));
         dispatch(change(FormName, "hourWork", data.hourWork));
         dispatch(change(FormName, "whatsapp", data.whatsapp));
+        dispatch(change(FormName, "social", data.social));
         dispatch(change(FormName, "img", data.img));
         dispatch(change(FormName, "description", data.description));
         _storeOrEdit("editar");
