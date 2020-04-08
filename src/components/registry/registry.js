@@ -6,7 +6,7 @@ import { FormEstablishment, FormDelivery } from './forms';
 import Row from '../share_components/row';
 import { BoxButton, BorderBox, Button } from './style';
 import { action as actionEstablishment } from '../../store/establishmentAdminRedux';
-import { action as actionDelivery } from '../../store/establishmentAdminRedux';
+import { action as actionDelivery } from '../../store/deliveryRedux';
 import Container from '../share_components/Container';
 
 
