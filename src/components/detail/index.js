@@ -10,6 +10,7 @@ import {
     Header,
     BoxFigure,
     Figure,
+    Itens,
     Href,
     HeaderContent,
     Title
@@ -65,19 +66,21 @@ export default props => {
                                     <Row>
                                         <Title>{establishment.name}</Title>
                                     </Row>
+
                                     <Row>
-                                        <div><img src="/img/ic_time.png" alt="" /> {establishment.hourWork}</div>
+                                        <Itens className="col-md-4">
+                                            <div><img src="/img/ic_time.png" alt="" /> {establishment.hourWork}</div>
+                                        </Itens>
+                                        <Itens className="col-md-4">
+                                            <div><img src="/img/ic_phone.png" alt="" /> {establishment.whatsapp}</div>
+                                        </Itens>
+                                        <Itens className="col-md-4">
+                                            <Href href="/#"><div><img src="/img/ic_ing.png" alt="" /> Acessar</div></Href>
+                                        </Itens>
                                     </Row>
-                                    <br />
+
                                     <Row>
-                                        <div><img src="/img/ic_phone.png" alt="" /> {establishment.whatsapp}</div>
-                                    </Row>
-                                    <br />
-                                    <Row>
-                                        <Href href="/#"><div><img src="/img/ic_ing.png" alt="" /> Acessar</div></Href>
-                                    </Row>
-                                    <Row>
-                                        <a href={`https://api.whatsapp.com/send?phone=+55`+establishment.whatsapp} style={{ marginTop: "20px" }}
+                                        <a href={`https://api.whatsapp.com/send?phone=+55` + establishment.whatsapp} style={{ marginTop: "20px" }}
                                             className="btn btn-outline-light">Entrar em contato</a>
                                     </Row>
 
@@ -88,7 +91,7 @@ export default props => {
 
                     <Center>
                         {establishment.description}
-                </Center>
+                    </Center>
 
 
                 </Container>

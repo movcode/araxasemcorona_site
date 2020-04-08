@@ -16,8 +16,23 @@ const Establishment = ({ sectors }) => {
 
     useEffect(() => {
         sectors && _categories(sectors[0].categories);
-
     }, [sectors]);
+
+
+    useEffect(() => {
+        if (!establishments && establishments !== "empty" && sectors) {
+
+            const allEstablishments = []
+
+            const all = sectors.map(s => s.categories
+                .map(c => c.establishments
+                    .map(e => allEstablishments.push(e))
+                )
+            );
+
+            _establishments(allEstablishments);
+        }
+    }, [sectors, establishments]);
 
     return (
         <Background bg="white" bottom="120">
@@ -37,7 +52,7 @@ const Establishment = ({ sectors }) => {
 
                 <Center top="80px">
                     <div className="col-md-12">
-                        <CategoriesItens                            
+                        <CategoriesItens
                             categories={categories}
                             _establishments={_establishments} />
                     </div>
@@ -52,13 +67,10 @@ const Establishment = ({ sectors }) => {
                                     <Center>
                                         <Text color="black">Nenhum estabelecimento cadastrado nesta categoria. </Text>
                                     </Center>
-
-
                                     <Center>
                                         <Link to="/registro"
                                             className="btn btn-warning  btn-sm">Clique aqui para adicionar um estabelecimento</Link>
                                     </Center>
-
                                 </div>
                         }
                     </div>

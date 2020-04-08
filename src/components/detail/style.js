@@ -56,6 +56,9 @@ export const Title = styled.h3`
   
 `;
 
+export const Itens = styled.div`
+margin-bottom:8px;
+`;
 
 export const Close = styled.div`
 width:40px;
