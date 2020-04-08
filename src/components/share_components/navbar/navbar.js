@@ -1,6 +1,7 @@
 import React from 'react'
 import NavMob from './navbar_mob';
-import { BGNav, Nav, GroupLink, NavLink } from './navbar_style';
+import { BGNav, Nav, GroupLink, NavLink, SignLink } from './navbar_style';
+import { ToggleButton } from 'react-bootstrap'
 
 
 
@@ -24,8 +25,13 @@ const Navbar = ({ logo }) => {
                             <NavLink to="/" active={active("/")} >HOME</NavLink>
                             <NavLink to="/sobre" active={active("/sobre")}>SOBRE</NavLink>
                             <NavLink to="/estabelecimentos" active={active("/estabelecimentos")}>ESTABELECIMENTOS</NavLink>
+                            {/* <NavLink to="/noticias" active={active("/contato")}>NOTÍCIAS</NavLink> */}
                             <NavLink to="/contato" active={active("/contato")}>CONTATO</NavLink>
                             <NavLink to="/registro" active={active("/registro")}>CADASTRAR</NavLink>
+                            <NavLink to="/login"><SignLink>LOGIN</SignLink></NavLink>
+
+
+
                         </div>
                     </GroupLink>
                 </Nav>

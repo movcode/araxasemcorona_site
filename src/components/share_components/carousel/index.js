@@ -30,15 +30,15 @@ export default ({ children, sectors, pages }) => {
                 infinite
 
                 addArrowClickHandler
-                arrowLeft={!sectors ? <Icon src="/img/back.svg" /> : ""}
-                arrowRight={!sectors ? <Icon src="/img/next.svg" /> : ""}
+                arrowLeft={<Icon src="/img/back.svg" />}
+                arrowRight={<Icon src="/img/next.svg" />}
                 slidesPerPage={pages}
                 dots={sectors ? true : false}
                 breakpoints={{
                     640: {
                         slidesPerPage: 2,
                         dots: true,
-                        centered: true,
+                        centered: true,                        
                         // autoPlay: 2000,
                         // animationSpeed: 1000,
                     }

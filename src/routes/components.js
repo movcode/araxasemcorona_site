@@ -7,6 +7,7 @@ import establishment from '../components_admin/establishment';
 import sector from '../components_admin/sector';
 import user from '../components_admin/user';
 import error from '../components/error';
+import loginEstablishment from '../components/login';
 
 
 export const Login = login;
@@ -17,6 +18,7 @@ export const Delivery = delivery;
 export const Establishment = establishment;
 export const Sector = sector;
 export const User = user;
+export const LoginEstab = loginEstablishment;
 
 export const Error = error;
 

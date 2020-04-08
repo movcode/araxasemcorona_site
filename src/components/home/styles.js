@@ -37,11 +37,11 @@ font-family:AvenirRegular;
 
 margin-top:-10px;
 @media(max-width:1024px){
-font-size:40px;
+font-size:30px;
 margin-bottom:80px;
 };
 @media(min-width:1024px){
-    font-size:58px;
+    font-size:40px;
     margin-bottom:80px;
 };
 

@@ -14,7 +14,9 @@ export default (props) => (
             <Route path="/contato" children={<Wrap page="contact" />} />
             <Route path="/estabelecimentos" children={<Wrap page="establishment" />} />
             <Route path="/estabelecimentos/:id" children={<Wrap page="establishment" />} />
+            <Route path="/noticias" children={<Wrap page="notices" />} />
             <Route path="/registro" children={<Wrap page="registry" />} />
+            <Route path="/login" component={Components.LoginEstab} />
 
             {/* Admin */}
             <Route path={PATH_ADMIN + "login"} component={Components.Login} />

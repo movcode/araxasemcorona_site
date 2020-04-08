@@ -138,10 +138,10 @@ const Form = ({ handleSubmit, sectors }) => {
                 </div>
 
                 <div className="form-group col-md-6">
-                    <label style={{ color: "#000" }}>Instagram ou Face:</label>
+                    <label style={{ color: "#000" }}>Instagram ou Facebook:</label>
                     <Field name="social"
                         className="form-control"
-                        placeholder="Digite aqui o seu Instagram ou FB"
+                        placeholder="Cole o link do seu Instagram ou Facebook"
                         component="input"
                         text="text"
                     />
@@ -155,12 +155,11 @@ const Form = ({ handleSubmit, sectors }) => {
 
             <div className="form-group">
                 <Field name="description"
-                    required
-                    maxLength="100"
+                    required                    
                     className="form-control"
-                    placeholder="Descreva sobre seu negócio como ele pode impactar positivamente na luta conta o coronavírus"
+                    placeholder="Descreva  sobre o seu negócio, informações sobre os seus produtos e seus diferenciais de atendimento."
                     component="textarea"
-                    rows="2" />
+                    rows="3" />
             </div>
 
 

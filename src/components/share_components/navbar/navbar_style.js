@@ -15,9 +15,9 @@ margin-top:20px;
 
 export const NavLink = styled(Link)`
 text-decoration: none;
-/* font-weight:bold; */
-
-font-family: AvenirBold;
+font-weight:bold;
+font-size:14px;
+/* font-family: AvenirRegular; */
 margin-left:30px;
 color: ${props => props.active === 1 ? LinkActive : LinkPrimary};    
  &:hover{    
@@ -25,6 +25,21 @@ color: ${props => props.active === 1 ? LinkActive : LinkPrimary};
     color:${LinkHoverPrimary};
     opacity:0.7;
 }`;
+
+
+export const SignLink = styled.div`
+/* width:40px; */
+margin-left:30px;
+float:right;
+margin:0;
+padding-left:20px;
+padding-right:20px;
+padding-top:5px;
+padding-bottom:5px;
+color:#fff;
+background:#F5B64A;
+border-radius:4px;
+`;
 
 export const BGNav = styled.div`
 position: fixed;

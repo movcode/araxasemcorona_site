@@ -52,6 +52,8 @@ const Wrap = ({ page }) => {
 
             <Element name="establishment"><Component.Establishemtn sectors={sectors && sectors} /></Element>
 
+            {/* <Element name="notices"><Component.Notices  /></Element> */}
+
             <Element name="registry"><Component.Registry sectors={sectors} /></Element>
 
             <Element name="contact"><Component.Contact /></Element>

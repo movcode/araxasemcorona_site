@@ -191,10 +191,9 @@ const Form = ({ handleSubmit, status }) => {
 
             <div className="form-group">
                 <Field name="description"
-                    required
-                    maxLength="100"
+                    required                    
                     className="form-control"
-                    placeholder="Descreva sobre seu negócio como ele pode impactar positivamente na luta conta o coronavírus"
+                    placeholder="Descreva sobre o negócio"
                     component="textarea"
                     rows="2" />
             </div>
