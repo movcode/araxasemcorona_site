@@ -9,8 +9,8 @@ const dispatch = (success, result) => success
     ? put(action.response("entregador", true, result))
     : put(action.response("entregador", false, result));
 
-const getInApi = async () => await Api.get(Api.url.deliveryman, true);
-const storeInApi = async delivery => await Api.post(Api.url.deliveryman, delivery, true);
+const getInApi = async () => await Api.get(Api.url.deliveryman, false);
+const storeInApi = async delivery => await Api.post(Api.url.deliveryman, delivery, false);
 const removeInApi = async id => await Api.remove(Api.url.deliveryman, id, true);
 const updateInApi = async (id, params) => await Api.put(Api.url.deliveryman, id, params, true);
 

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Box, BoxFigure, Figure, Name } from './styled';
 import { Row } from 'react-bootstrap';
-import Detail from './detail';
-
+import { Link } from 'react-router-dom';
 
 export default ({ establishments }) => {
 
@@ -12,18 +11,17 @@ export default ({ establishments }) => {
                 establishments &&
                 establishments.map(establishment =>
 
-                    <div className="col-md-2" key={establishment._id}
-                        data-fancybox data-src="#detailbox">
+                    <div className="col-md-2" key={establishment._id}>
                         {establishment.img &&
-                            <Box>
-                                <BoxFigure >
-                                    <Figure src={establishment.img} />
-                                </BoxFigure>
-                                <Name className="text-truncate">{establishment.name}</Name>
-                            </Box>
+                            <Link to={`/estabelecimentos/${establishment._id}`}>
+                                <Box >
+                                    <BoxFigure >
+                                        <Figure src={establishment.img} />
+                                    </BoxFigure>
+                                    <Name className="text-truncate">{establishment.name}</Name>
+                                </Box>
+                            </Link>
                         }
-
-                        <Detail data={establishment} />
                     </div>
                 )
             }

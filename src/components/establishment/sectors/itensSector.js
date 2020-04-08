@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CircularImage} from '../../share_components/global_style';
+import { CircularImage } from '../../share_components/global_style';
 import Center from '../../share_components/center';
 import Carousel from '../../share_components/carousel';
 import styled from 'styled-components';
@@ -19,15 +19,17 @@ width:120px;
 export default ({ sectors, _categories, _establishments }) => {
     const [selected, _selected] = useState([]);
 
-    const setCategories = data => {
+    const setDatas = data => {
         _selected(data._id);
 
-        if (data.categories[0].name === "Sem Categoria") {
-            _categories(false);
-            _establishments(data.categories[0].establishments);
-        } else {
-            _categories(data.categories);
-        }
+        const categories = data.categories;
+
+        const establishments = categories.map(categorie => categorie.establishments
+            .reduce((e, c) => e = c, 0)
+        ).filter(Boolean);
+
+        _categories(categories);
+        _establishments(establishments);
     }
 
 
@@ -39,12 +41,12 @@ export default ({ sectors, _categories, _establishments }) => {
                     <Box key={data._id}>
                         <CircularImage
 
-                            onClick={() => setCategories(data)}
+                            onClick={() => setDatas(data)}
                             op={selected === data._id ? 1 : 0}
                             bg={data.icon}></CircularImage>
-                            
+
                         <Center>
-                <Title className="text-truncate">{data.title}</Title>
+                            <Title className="text-truncate">{data.title}</Title>
                         </Center>
                     </Box>
                 )

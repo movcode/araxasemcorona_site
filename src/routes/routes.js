@@ -13,6 +13,7 @@ export default (props) => (
             <Route path="/sobre" children={<Wrap page="about" />} />
             <Route path="/contato" children={<Wrap page="contact" />} />
             <Route path="/estabelecimentos" children={<Wrap page="establishment" />} />
+            <Route path="/estabelecimentos/:id" children={<Wrap page="establishment" />} />
             <Route path="/registro" children={<Wrap page="registry" />} />
 
             {/* Admin */}

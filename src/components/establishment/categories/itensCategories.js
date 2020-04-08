@@ -20,13 +20,12 @@ background: transparent;
     }
 `;
 
-export default ({ categories, _establishments, _categorieSelected }) => {
+export default ({ categories, _establishments }) => {
     const [selected, _selected] = useState(false);
 
 
     const setEstablishment = (data) => {
         _selected(data._id);
-        _categorieSelected(true);
 
         !data.establishments[0] ? _establishments("empty") : _establishments(data.establishments);
     }
@@ -34,9 +33,10 @@ export default ({ categories, _establishments, _categorieSelected }) => {
     return (
         <div >
             {categories &&
-                <Carousel pages="6" pagesMob={3}>
+                categories[0].name === "Sem Categoria" ? <></>
+                : <Carousel pages="6" pagesMob={3}>
                     {
-                        categories.map(data =>
+                        categories && categories.map(data =>
                             <Itens
                                 key={data._id}
                                 onClick={() => setEstablishment(data)}

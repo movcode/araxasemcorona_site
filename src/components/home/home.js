@@ -7,7 +7,7 @@ const Home = ({ title, subtitle, text }) => {
 
     return (
         <BgHome >
-            <LeafBg src="img/leaf.png" />
+            <LeafBg src="/img/leaf.png" />
             <Box>
                 <Row>
                     <BoxTitle className="col-md-6">
@@ -18,7 +18,7 @@ const Home = ({ title, subtitle, text }) => {
                     </BoxTitle>
 
                     <div className="col-md-6">
-                        <ImgSvg className="img-fluid" src="img/covid.svg" alt="Escudo contra coronavirus" />
+                        <ImgSvg className="img-fluid" src="/img/covid.svg" alt="Escudo contra coronavirus" />
                     </div>
                 </Row>
             </Box>

@@ -17,6 +17,7 @@ export const Delivery = delivery;
 export const Establishment = establishment;
 export const Sector = sector;
 export const User = user;
+
 export const Error = error;
 
 
