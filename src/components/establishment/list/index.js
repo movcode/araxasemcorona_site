@@ -11,7 +11,7 @@ export default ({ establishments }) => {
                 establishments &&
                 establishments.map(establishment =>
 
-                    <div className="col-md-2" key={establishment._id}>
+                    <div className="col-md-2 col-4" key={establishment._id}>
                         {establishment.img &&
                             <Link to={`/estabelecimentos/${establishment._id}`}>
                                 <Box >

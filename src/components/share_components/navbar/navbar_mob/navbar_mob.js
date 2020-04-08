@@ -23,7 +23,7 @@ const NavbarMob = ({ logo }) => {
                             <FontAwesomeIcon icon={faBars} color="white" size="2x" onClick={() => handleMenu(1)} />
                             : <FontAwesomeIcon className="openMenu" icon={faTimes} color="white" size="2x" onClick={() => handleMenu(0)} />}
                     </LaunchMenu>
-                    <div className="col-5">
+                    <div className="col-8">
                         {logo && <img src={logo} className="img-fluid" style={{marginTop:"-20px"}} alt="logo" />}
                     </div>
                 </div>

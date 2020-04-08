@@ -24,7 +24,7 @@ const Establishment = ({ sectors }) => {
 
             const allEstablishments = []
 
-            const all = sectors.map(s => s.categories
+            sectors.map(s => s.categories
                 .map(c => c.establishments
                     .map(e => allEstablishments.push(e))
                 )

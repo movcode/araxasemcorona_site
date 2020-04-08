@@ -166,6 +166,7 @@ const Form = ({ handleSubmit, status }) => {
                 <div className="form-group col-md-6">
                     <Label>Digite o seu WhatsApp:</Label>
                     <Field name="whatsapp"
+                        required
                         className="form-control"
                         placeholder="Digite aqui o número do seu Whatsapp"
                         component="input"
@@ -174,10 +175,18 @@ const Form = ({ handleSubmit, status }) => {
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <Upload mTop="20" title="Seleciona uma logomarca" img={imgUpload} />
+                    <Label>Instagram ou Face:</Label>
+                    <Field name="social"
+                        className="form-control"
+                        placeholder="Digite aqui o seu Instagram ou FB"
+                        component="input"
+                        text="text"                        
+                    />
                 </div>
             </Row>
-
+            <div className="form-group">
+                <Upload mTop="20" title="Seleciona uma logomarca" img={imgUpload} />
+            </div>
 
 
             <div className="form-group">

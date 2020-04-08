@@ -127,7 +127,7 @@ const Form = ({ handleSubmit, sectors }) => {
 
             <Row>
                 <div className="form-group col-md-6">
-                    <label>Digite o seu WhatsApp:</label>
+                    <label style={{ color: "#000" }}>Digite o seu WhatsApp:</label>
                     <Field name="whatsapp"
                         className="form-control"
                         placeholder="Digite aqui o número do seu Whatsapp"
@@ -136,10 +136,20 @@ const Form = ({ handleSubmit, sectors }) => {
                         {...MaskInput.phone}
                     />
                 </div>
+
                 <div className="form-group col-md-6">
-                    <Upload mTop="20" title="Clique e seleciona sua logomarca" img={imgUpload} />
+                    <label style={{ color: "#000" }}>Instagram ou Face:</label>
+                    <Field name="social"
+                        className="form-control"
+                        placeholder="Digite aqui o seu Instagram ou FB"
+                        component="input"
+                        text="text"
+                    />
                 </div>
             </Row>
+            <div className="form-group">
+                <Upload mTop="20" title="Seleciona uma logomarca" img={imgUpload} />
+            </div>
 
 
 
