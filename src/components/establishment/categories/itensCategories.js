@@ -20,30 +20,32 @@ background: transparent;
     }
 `;
 
-export default ({ categories, _establishments }) => {    
-    const [selected, _selected] = useState([]);
+export default ({ categories, _establishments, _categorieSelected }) => {
+    const [selected, _selected] = useState(false);
 
 
     const setEstablishment = (data) => {
         _selected(data._id);
-        _establishments(data.establishments);
+        _categorieSelected(true);
+
+        !data.establishments[0] ? _establishments("empty") : _establishments(data.establishments);
     }
 
-    return (<div >
+    return (
+        <div >
+            {categories &&
+                <Carousel pages="6" pagesMob={3}>
+                    {
+                        categories.map(data =>
+                            <Itens
+                                key={data._id}
+                                onClick={() => setEstablishment(data)}
+                                active={selected === data._id ? 1 : 0}>
+                                {data.name}
+                            </Itens>)
+                    }
+                </Carousel>
+            }
 
-        {categories &&
-            <Carousel pages="6" pagesMob={3}>
-                {
-                    categories.map(data =>
-                        <Itens
-                            key={data._id}
-                            onClick={() => setEstablishment(data)}
-                            active={selected === data._id ? 1 : 0}>
-                            {data.name}
-                        </Itens>)
-                }
-            </Carousel>
-        }
-
-    </div>);
+        </div>);
 }

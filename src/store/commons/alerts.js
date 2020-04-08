@@ -12,8 +12,8 @@ export const List = (status) => status ?
 
 export const Store = (status) => status ?
     swal({
-        title: "Sucesso!",
-        text: "Conteúdo adicionado com sucesso",
+        title: "Adicionado com sucesso!",
+        text: "Aguardando aprovação do administrador",
         icon: "success",
     })
     : swal({

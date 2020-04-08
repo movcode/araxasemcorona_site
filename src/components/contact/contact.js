@@ -12,7 +12,7 @@ const Contact = props => {
     return (<BackgroundDeg color="#F5B64A" >
         <BoxDeg>
             <Center>
-                <Title color="black" bottom="40px" size="40px">Fale Conosco</Title>
+                <Title color="black" bottom="40px" sizeM="30px" size="40px">Fale Conosco</Title>
             </Center>
 
             <Center >
@@ -20,6 +20,14 @@ const Contact = props => {
                     <Form onSubmit={sendEmail} />
                 </div>
             </Center>
+
+
+            <Center top="20px" bottom="80px">
+                <a href="https://www.facebook.com/buganicomunicacao/">
+                    <img width="80" src="/img/bugani.svg" alt="logo bugani" />
+                </a>
+            </Center>
+
         </BoxDeg>
     </BackgroundDeg>);
 }

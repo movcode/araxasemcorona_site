@@ -23,7 +23,7 @@ transform:skewY(2deg);
 
 export const Box = styled.div`
 margin-top:140px;
-padding:20px;
+
 margin-bottom:${p => p.bottom};
 `;
 

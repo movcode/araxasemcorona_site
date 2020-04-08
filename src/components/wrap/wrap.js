@@ -33,7 +33,7 @@ const Wrap = ({ page }) => {
             smooth: true,
         });
     }, [page]);
-    
+
     return (
         <>
             {!sectors && <Load />}
@@ -49,8 +49,10 @@ const Wrap = ({ page }) => {
 
             <Element name="establishment"><Component.Establishemtn sectors={sectors && sectors} /></Element>
 
-            <Element name="registry"><Component.Registry /></Element>
+            <Element name="registry"><Component.Registry sectors={sectors} /></Element>
+
             <Element name="contact"><Component.Contact /></Element>
+
         </>
     );
 

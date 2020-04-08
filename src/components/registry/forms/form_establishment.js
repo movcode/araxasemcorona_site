@@ -3,15 +3,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Title } from '../../share_components/global_style';
 import { reduxForm, Field, change } from 'redux-form';
 import { FormStyle } from './style';
-import {Row} from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
 import MaskInput from '../../../share/maskinput';
 import Upload from '../../../share/upload';
 
 
-const Form = ({ handleSubmit }) => {
+const Form = ({ handleSubmit, sectors }) => {
     const form = useSelector(state => state.form.formEstablishment);
     const { response } = useSelector(state => state.response);
     const dispatch = useDispatch();
+    const [categories, _categories] = useState(false);
     const [imgUpload, _imgUpload] = useState(false);
 
     useEffect(() => {
@@ -21,6 +22,9 @@ const Form = ({ handleSubmit }) => {
             _imgUpload(img);
         }
     }, [response, dispatch]);
+
+
+    const filter = id => sectors.filter(sector => sector._id === id && _categories(sector.categories));
 
     return (
         <FormStyle onSubmit={handleSubmit} >
@@ -67,13 +71,17 @@ const Form = ({ handleSubmit }) => {
 
             <Row>
                 <div className="form-group col-md-6">
-                    <Field name="sector"
+                    <Field
+                        onChange={(e) => filter(e.target.value)}
+                        name="sector"
                         required
                         className="form-control"
                         component="select">
                         <option value="" disabled >Selecione o seu setor</option>
-                        <option value="Alimentação">Alimentação</option>
-                        <option value="">Loja</option>
+                        {sectors && sectors.map(sector =>
+                            <option key={sector._id} value={sector._id}>{sector.title}</option>
+                        )}
+
                     </Field>
                 </div>
 
@@ -83,8 +91,9 @@ const Form = ({ handleSubmit }) => {
                         className="form-control"
                         component="select">
                         <option value="" disabled >Selecione uma categoria </option>
-                        <option value="Acaí">Acaí</option>
-                        <option value="pizzaria">Pizzaria</option>
+                        {categories && categories.map(categorie =>
+                            <option key={categorie._id} value={categorie._id}>{categorie.name}</option>
+                        )}
                     </Field>
                 </div>
             </Row>

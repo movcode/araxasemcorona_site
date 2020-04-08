@@ -12,7 +12,7 @@ export default ({ establishments }) => {
                 establishments &&
                 establishments.map(establishment =>
 
-                    <div className="col-md-4" key={establishment._id}
+                    <div className="col-md-2" key={establishment._id}
                         data-fancybox data-src="#detailbox">
                         {establishment.img &&
                             <Box>
