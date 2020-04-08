@@ -184,8 +184,8 @@ const Form = ({ handleSubmit, status }) => {
                     />
                 </div>
             </Row>
-            <div className="form-group">
-                <Upload mTop="20" title="Seleciona uma logomarca" img={imgUpload} />
+            <div className="form-group">                
+                <Upload mTop="20" title="Seleciona a marca do estabelecimento" img={imgUpload} />
             </div>
 
 

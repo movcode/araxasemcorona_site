@@ -148,7 +148,7 @@ const Form = ({ handleSubmit, sectors }) => {
                 </div>
             </Row>
             <div className="form-group">
-                <Upload mTop="20" title="Seleciona uma logomarca" img={imgUpload} />
+            <Upload mTop="20" title="Insira a marca do seu negócio clicando aqui" img={imgUpload} />
             </div>
 
 

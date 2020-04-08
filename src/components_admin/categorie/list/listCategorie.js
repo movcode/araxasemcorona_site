@@ -11,13 +11,14 @@ export default ({ remove, edit }) => {
 
 
     useEffect(() => {
-        !categories && response.result ==="" && dispatch(action.list())
+        !categories && response.result === "" && dispatch(action.list())
         response.from === "categoria" && response.status && _categories(response.result)
     }, [categories, response, dispatch]);
 
 
     return (
-        <>
+        <div>
+           
             {
                 categories &&
                 categories.map(categorie => <Card key={categorie._id}
@@ -25,7 +26,7 @@ export default ({ remove, edit }) => {
                     subtitle={<Buttons onDelete={remove} onEdit={edit} data={categorie} />}
                 />)
             }
-        </>
+        </div>
     );
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Card from '../../share_components/card';
 import Buttons from '../../share_components/buttonsManager';
+import Center from '../../../components/share_components/center';
 import { action } from '../../../store/sectorRedux'
 
 export default ({ remove, edit }) => {
@@ -19,7 +20,8 @@ export default ({ remove, edit }) => {
     }, [dispatch, sectors, response]);
 
     return (
-        <>
+        <div>
+            <Center>Obs: Ao deletar o setor todos os seus respectivas categorias serão afetadas</Center>
             {
                 sectors &&
                 sectors.map(sector => <Card key={sector._id}
@@ -28,7 +30,7 @@ export default ({ remove, edit }) => {
                     subtitle={<Buttons onDelete={remove} onEdit={edit} data={sector} />}
                 />)
             }
-        </>
+        </div>
     );
 }
 

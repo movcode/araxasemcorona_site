@@ -32,8 +32,7 @@ export default props => {
 
         const fetch = async () => {
             const resp = await Api.get(`${Api.url.establishment}/${id}`, false);
-            resp.data && _establishment(resp.data);
-            console.log(resp.data);
+            resp.data && _establishment(resp.data);            
         }
 
         if (id && !show) {
@@ -59,8 +58,6 @@ export default props => {
                                 <Figure src={establishment.img} className="img-fluid" />
                             </BoxFigure>
 
-
-
                             <div className="col-9 col-md-9">
                                 <HeaderContent>
                                     <Row>
@@ -75,13 +72,22 @@ export default props => {
                                             <div><img src="/img/ic_phone.png" alt="" /> {establishment.whatsapp}</div>
                                         </Itens>
                                         <Itens className="col-md-4">
-                                            <Href href="/#"><div><img src="/img/ic_ing.png" alt="" /> Acessar</div></Href>
+                                            {establishment.social &&
+                                                <Href href={establishment.social} target="_blank">
+                                                    <div><img src={
+                                                        establishment.social.indexOf("facebook") > 0 ? "/img/ic_fb.png" : "/img/ic_ing.png"
+                                                    } alt="" /> Acessar</div>
+                                                </Href>
+                                            }
+
                                         </Itens>
                                     </Row>
 
                                     <Row>
-                                        <a href={`https://api.whatsapp.com/send?phone=+55` + establishment.whatsapp} style={{ marginTop: "20px" }}
-                                            className="btn btn-outline-light">Entrar em contato</a>
+                                        <Href href={`https://api.whatsapp.com/send?phone=+55` + establishment.whatsapp}
+                                            target="_blank"
+                                            style={{ marginTop: "20px" }}
+                                            className="btn btn-outline-light">Entrar em contato</Href>
                                     </Row>
 
                                 </HeaderContent>

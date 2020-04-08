@@ -60,7 +60,7 @@ const DropZone = ({ title, mTop, img, logo }) => {
                     if (this.width < 500) {
                         return swal({
                             title: "Error!",
-                            text: "Selecione uma imagem maior, acima de 500 px",
+                            text: "Selecione uma imagem maior, acima de 500x500",
                             icon: "error",
                         })
                     } else {
@@ -81,7 +81,7 @@ const DropZone = ({ title, mTop, img, logo }) => {
                     <div {...getRootProps()}>
 
                         {!img
-                            ? <Label style={{ cursor: 'pointer' }}>{errorUpload === null ? title + " (acima de 500px de largura)" : errorUpload}</Label>
+                            ? <Label style={{ cursor: 'pointer' }}>{errorUpload === null ? title + " (tamanho recomendado 500x500px)" : errorUpload}</Label>
                             : <img src={img} alt="img uploaded" className="img-fluid" />
                         }
                         <Center>

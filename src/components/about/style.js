@@ -17,10 +17,10 @@ overflow:hidden;
 box-shadow: -1px 2px 5px 0px rgba(138,134,138,1);
 
 @media(max-width:1024px){
-    height:580px;
+    height:540px;
 }
 @media(min-width:1024px){
-    height:480px;
+    height:450px;
 }`;
 
 

@@ -19,9 +19,12 @@ export default props => {
     const FormName = "formEstablishmentAdmin";
 
     const store = (sector) => {
-        storeOrEdit !== "editar"
-            ? dispatch(action.store(sector))
-            : dispatch(action.update(sector.id, sector));
+        if (storeOrEdit !== "editar"){
+            dispatch(action.store(sector))
+        }else{
+            dispatch(action.update(sector.id, sector));
+            _storeOrEdit("store");
+        }            
 
         dispatch(reset(FormName));
     }

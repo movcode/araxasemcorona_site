@@ -7,7 +7,8 @@ import Menu from '../share_components/navbar_admin';
 import Row from '../../components/share_components/row'
 import Form from './form';
 import List from './list';
-import { action } from '../../store/categorieRedux'
+import { action } from '../../store/categorieRedux';
+import Center from '../../components/share_components/center';
 
 
 
@@ -36,7 +37,8 @@ const Categorie = props => {
 
             <Container>
                 <Title>CATEGORIAS</Title>
-                <Row>
+                <Center bottom="20px">Obs: Ao deletar a categorias todos os seus respectivos estebelecimentos serão afetadas</Center>
+                <Row>                    
                     <div className="col-md-6">
                         <Form onSubmit={store} status={storeOrEdit} />
                     </div>

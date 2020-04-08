@@ -39,8 +39,8 @@ export default ({ children, sectors, pages }) => {
                         slidesPerPage: 2,
                         dots: true,
                         centered: true,
-                        autoPlay: 2000,
-                        animationSpeed: 1000,
+                        // autoPlay: 2000,
+                        // animationSpeed: 1000,
                     }
                 }}
 

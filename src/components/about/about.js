@@ -34,7 +34,9 @@ const About = ({ text }) =>
                         <Center>
                             <Title color="#fff" bottom="20px" size="20px" sizeM="30px">COMERCIANTES </Title>
                         </Center>
-                        <Text color="white" padding="20px">Comerciantes e autônomos cadastram de forma gratutíta o seu negocio em nossa plataforma.</Text>
+                        <Text color="white" padding="20px" align="center">
+                            Comerciantes e autônomos cadastram o seu negócio aqui, de forma gratuita.
+                            </Text>
                     </BoxItem>
                 </BoxHow>
 
@@ -44,8 +46,8 @@ const About = ({ text }) =>
                         <Center>
                             <Title color="#fff" bottom="20px" size="20px" sizeM="30px">ENTREGADORES </Title>
                         </Center>
-                        <Text color="white" padding="20px">
-                            Entregadores cadastram suas informações em nossa plataforma de forma gratuíta.
+                        <Text color="white" padding="20px" align="center">
+                            Os entregadores cadastram suas informações gratuitamente.
                     </Text>
                     </BoxItem>
                 </BoxHow>
@@ -55,8 +57,8 @@ const About = ({ text }) =>
                         <Center>
                             <Title color="#fff" bottom="20px" size="20px" sizeM="30px">PLATAFORMA </Title>
                         </Center>
-                        <Text color="white" padding="20px" >
-                            Através da nossa plataforma indicamos os entregadores para os comerciantes que trabalham com delivery.
+                        <Text color="white" padding="20px" align="center">
+                            Através da plataforma, nós indicamos os entregadores para os comerciantes que trabalham com delivery. 
                     </Text>
 
                     </BoxItem>
@@ -67,8 +69,8 @@ const About = ({ text }) =>
                         <Center>
                             <Title color="#fff" bottom="20px" size="20px" sizeM="30px">CONSUMIDORES </Title>
                         </Center>
-                        <Text color="white" padding="20px">
-                            Consumidores acessam nossa plataforma, entra em contato com o estabelecimento selecionado e realiza o pedido sem sair de casa.
+                        <Text color="white" padding="15px" align="center">   
+                        Os consumidores acessam a plataforma, entra em contato com o estabelecimento selecionado e realiza o pedido sem sair de casa.                        
                     </Text>
                     </BoxItem>
                 </BoxHow>

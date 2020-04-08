@@ -10,7 +10,7 @@ import { action as actionDelivery } from '../../store/deliveryRedux';
 import Container from '../share_components/Container';
 
 
-const Registry = ({sectors}) => {
+const Registry = ({ sectors }) => {
     const [userType, _userType] = useState(1);
     const dispatch = useDispatch();
 
@@ -25,13 +25,19 @@ const Registry = ({sectors}) => {
                     <div className="col-md-4" >
                         <Title color="white" bottom="60px" size="60px">Cadastro</Title>
                         <Center>
-                            <Text>
-                                Agora é o momento de você ajudar a nossa cidade é ainda alavancar o seu negócio neste momento tão díficil.
+                            
+                            <Text align="left">
+                                Agora é o momento de você ajudar a nossa cidade e alavancar o seu negócio neste momento de isolamento social.
                             <br />
-                                <br />
-                            Para você que trabalha com delivery em seu negócio, iremos publicar <Bold>gratuitamente</Bold> o seu estabelecimento em nossa paltaforma .
-                            <br />E para vocês entregadores iremos indicar o seu trabalho para os estabelecimentos cadastrados aqui.
-                        </Text>
+                            <br />
+                            Para você que trabalha com delivery, iremos publicar <Bold>gratuitamente</Bold> seu estabelecimento em nossa plataforma.
+                            <br />
+                            <br />
+                            E para você, entregador, iremos indicar o seu trabalho para os estabelecimentos indicados aqui.
+                            <br/>
+                            É hora de nos unirmos!
+                            
+                            </Text>
                         </Center>
                     </div>
 

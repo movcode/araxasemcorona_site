@@ -21,7 +21,7 @@ export const BoxFigure = styled.div`
     margin:0;
     background:#fff;
     border-radius:4px;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
     border: 1px solid #f2f2f2;    
     &:hover{
         border:1px solid #f2f2f2;

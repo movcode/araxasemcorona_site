@@ -7,7 +7,8 @@ import Menu from '../share_components/navbar_admin';
 import Row from '../../components/share_components/row'
 import FormSector from './form';
 import ListSector from './list';
-import { action } from '../../store/sectorRedux'
+import { action } from '../../store/sectorRedux';
+import Center from '../../components/share_components/center';
 
 const Setor = props => {
     const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const Setor = props => {
 
             <Container>
                 <Title>SETORES</Title>
+                <Center bottom="20px">Obs: Ao deletar o setor todoas as seuas respectivas categórias serão afetados</Center>
                 <Row>
                     <div className="col-md-6">
                         <FormSector onSubmit={store} status={storeOrEdit} />
