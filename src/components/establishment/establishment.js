@@ -24,8 +24,7 @@ const Establishment = ({ sectors }) => {
                     .map(e => all.push(e))
                 )
             )
-            _establishments(all);
-            console.log(establishments);
+            _establishments(all);            
         }
     }, [establishments, sectors]);
 

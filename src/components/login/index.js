@@ -53,7 +53,7 @@ const Login = props => {
                 <Center>
                     <Title color="white" left="12px" sizeM="30px" size="20px">Alterar informações do estabelecimento</Title>
                 </Center>
-                {/* <LoginForm onSubmit={login} /> */}
+                <LoginForm onSubmit={login} />
                 <LoginForm />
             </Container>
         </Background>

@@ -26,35 +26,22 @@ const Form = ({ handleSubmit, status }) => {
         }
     }, [response, dispatch]);
 
-
     //Fetch Sectors   
     useEffect(() => {
         let isSubscribe = true;
-
-        const fetchSector = async () => {
+        const fetch = async () => {
             let resp = await Api.get(Api.url.sector, false);
             isSubscribe && resp.data && _sectors(resp.data);
-        }
-
-        fetchSector();
-        return () => isSubscribe = false;
-    }, [])
-
-    //Fetch Categories   
-    useEffect(() => {
-        let isSubscribe = true;
-        const fetch = async () => {
-            let resp = await Api.get(Api.url.categorie, false);
-            isSubscribe && resp.data && _categories(resp.data);
         }
         fetch();
         return () => isSubscribe = false;
     }, [])
 
 
-    const filterCategorie = id => {
-        const filtered = categories.filter(categorie => categorie.sector === id);
-        _categoriesFiltered(filtered);
+    const filterCategorie = data => {
+        data && console.log(data.categories);
+        // const filtered = categories && categories.filter(categorie => categorie.sector === id);
+        // _categoriesFiltered(filtered);
     }
 
 
@@ -120,7 +107,7 @@ const Form = ({ handleSubmit, status }) => {
                         component="select">
                         <option value="" disabled >Selecione o seu setor</option>
                         {sectors && sectors.map(sector =>
-                            <option key={sector._id} value={sector._id}>{sector.title}</option>
+                            <option key={sector._id} value={sector}>{sector.title}</option>
                         )}
                     </Field>
                 </div>
