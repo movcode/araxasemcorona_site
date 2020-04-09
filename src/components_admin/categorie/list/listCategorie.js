@@ -18,13 +18,14 @@ export default ({ remove, edit }) => {
 
     return (
         <div>
-           
+
             {
                 categories &&
-                categories.map(categorie => <Card key={categorie._id}
-                    title={categorie.name}
-                    subtitle={<Buttons onDelete={remove} onEdit={edit} data={categorie} />}
-                />)
+                categories.map(categorie =>
+                    categorie.name !== "Sem Categoria" && <Card key={categorie._id}
+                        title={categorie.name}
+                        subtitle={<Buttons onDelete={remove} onEdit={edit} data={categorie} />}
+                    />)
             }
         </div>
     );

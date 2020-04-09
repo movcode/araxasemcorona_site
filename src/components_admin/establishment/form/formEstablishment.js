@@ -40,7 +40,7 @@ const Form = ({ handleSubmit, status }) => {
         return () => isSubscribe = false;
     }, [])
 
-    //Fetch Sectors   
+    //Fetch Categories   
     useEffect(() => {
         let isSubscribe = true;
         const fetch = async () => {
@@ -63,12 +63,19 @@ const Form = ({ handleSubmit, status }) => {
             <Field
                 name="id"
                 component="input"
-                type="hidden" />
+                type="text" />
 
             <Field
                 name="img"
                 component="input"
-                type="hidden" />
+                type="text" />
+
+            <Field
+                name="delivery"
+                component="input"
+                type="text" 
+                value="true"/>
+            
 
             <div className="form-group ">
 
@@ -125,11 +132,11 @@ const Form = ({ handleSubmit, status }) => {
                         component="select">
                         <option value="" disabled >Selecione uma categoria </option>
                         {
-                            categoriesFiltered ?
-                                categoriesFiltered.map(categorie =>
-                                    <option key={categorie._id} value={categorie._id}>{categorie.name}</option>)
-                                : categories && categories.map(categorie =>
-                                    <option key={categorie._id} value={categorie._id}>{categorie.name}</option>)
+                            categoriesFiltered &&
+                            categoriesFiltered.map(categorie =>
+                                <option key={categorie._id} value={categorie._id}>{categorie.name}</option>)
+                            // : categories && categories.map(categorie =>
+                            //     <option key={categorie._id} value={categorie._id}>{categorie.name}</option>)
                         }
                     </Field>
                 </div>
@@ -180,18 +187,18 @@ const Form = ({ handleSubmit, status }) => {
                         className="form-control"
                         placeholder="Digite aqui o seu Instagram ou FB"
                         component="input"
-                        text="text"                        
+                        text="text"
                     />
                 </div>
             </Row>
-            <div className="form-group">                
+            <div className="form-group">
                 <Upload mTop="20" title="Seleciona a marca do estabelecimento" img={imgUpload} />
             </div>
 
 
             <div className="form-group">
                 <Field name="description"
-                    required                    
+                    required
                     className="form-control"
                     placeholder="Descreva sobre o negócio"
                     component="textarea"
@@ -200,15 +207,18 @@ const Form = ({ handleSubmit, status }) => {
 
 
             <div className="form-group">
-                <button disabled={form && form.values
+                <button 
+                
+                disabled={form
+                    && form.values
                     && form.values.name
                     && form.values.email
                     && form.values.sector
-                    && form.values.categorie
-                    && form.values.delivery
+                    && form.values.categorie                    
                     && form.values.hourWork
                     && form.values.whatsapp
-                    && form.values.description ? false : true} type="submit" className="btn btn-warning btn-block">
+                    && form.values.description ? false : true} 
+                type="submit" className="btn btn-warning btn-block">
                     {status === "editar" ? "EDITAR" : "CADASTRAR"}
                 </button>
             </div>

@@ -11,7 +11,7 @@ const dispatch = (success, result) => success
     : put(action.response("estabelecimento", false, result));
 
 const getInApi = async () => await Api.get(Api.url.establishment, true);
-const storeInApi = async sector => await Api.post(Api.url.establishment, sector, false);
+const storeInApi = async data => await Api.post(Api.url.establishment, data, false);
 const removeInApi = async id => await Api.remove(Api.url.establishment, id, true);
 const updateInApi = async (id, params) => await Api.put(Api.url.establishment, id, params, false);
 const approvedInApi = async (id, params) => await Api.put(Api.url.approved, id, params, true);

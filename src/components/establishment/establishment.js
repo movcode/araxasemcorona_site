@@ -7,8 +7,6 @@ import SectorItens from './sectors';
 import CategoriesItens from './categories';
 import ListEstablishment from './list'
 
-
-
 const Establishment = ({ sectors }) => {
 
     const [categories, _categories] = useState(false);
@@ -18,21 +16,19 @@ const Establishment = ({ sectors }) => {
         sectors && _categories(sectors[0].categories);
     }, [sectors]);
 
-
     useEffect(() => {
-        if (!establishments && establishments !== "empty" && sectors) {
-
-            const allEstablishments = []
-
+        if (!establishments && sectors) {
+            const all = [];
             sectors.map(s => s.categories
                 .map(c => c.establishments
-                    .map(e => allEstablishments.push(e))
+                    .map(e => all.push(e))
                 )
-            );
-
-            _establishments(allEstablishments);
+            )
+            _establishments(all);
+            console.log(establishments);
         }
-    }, [sectors, establishments]);
+    }, [establishments, sectors]);
+
 
     return (
         <Background bg="white" bottom="120">

@@ -4,7 +4,7 @@ import Center from '../share_components/center';
 import { BoxButton, BorderBox, Button } from '../registry/style';
 import Container from '../share_components/Container';
 import { Row, Accordion, Card } from 'react-bootstrap';
-import { Api } from '../../share/api';
+
 import './style.css';
 
 

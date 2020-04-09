@@ -7,7 +7,9 @@ import Menu from '../share_components/navbar_admin';
 import Row from '../../components/share_components/row'
 import Form from './form';
 import List from './list';
-import { action } from '../../store/establishmentAdminRedux'
+import { action } from '../../store/establishmentAdminRedux';
+var Scroll = require('react-scroll');
+var scroll = Scroll.animateScroll;
 
 
 
@@ -18,20 +20,26 @@ export default props => {
 
     const FormName = "formEstablishmentAdmin";
 
-    const store = (sector) => {
-        if (storeOrEdit !== "editar"){
-            dispatch(action.store(sector))
-        }else{
-            dispatch(action.update(sector.id, sector));
+    const store = (data) => {
+        console.log(data);
+        
+        if (storeOrEdit !== "editar") {
+            dispatch(action.store(data))
+        } else {
+            dispatch(action.update(data.id, data));
             _storeOrEdit("store");
-        }            
+        }
 
         dispatch(reset(FormName));
     }
 
-    const remove = data => dispatch(action.remove(data._id));
+    const remove = data => {        
+        dispatch(action.remove(data._id));
+        scroll.scrollToTop();
+    }
 
     const editForm = data => {
+        console.log(data);
         dispatch(change(FormName, "id", data._id));
         dispatch(change(FormName, "name", data.name));
         dispatch(change(FormName, "email", data.email));
@@ -45,6 +53,7 @@ export default props => {
         dispatch(change(FormName, "img", data.img));
         dispatch(change(FormName, "description", data.description));
         _storeOrEdit("editar");
+        scroll.scrollToTop();
     }
 
     return (

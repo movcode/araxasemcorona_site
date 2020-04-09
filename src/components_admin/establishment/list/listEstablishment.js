@@ -7,7 +7,7 @@ export default ({ remove, edit }) => {
     const { response } = useSelector(state => state.response);
     const dispatch = useDispatch();
 
-    const [confirmed, _confirmed] = useState(false);
+    const [confirmed, _confirmed] = useState(null);
     const [establishments, _establishments] = useState(false);
 
     useEffect(() => {
@@ -19,8 +19,11 @@ export default ({ remove, edit }) => {
 
 
     const confirm = data => {
-        _confirmed(true)
-        if (confirmed) return remove(data);
+        _confirmed(data._id)
+        if (confirmed) {
+            remove(data)
+            _confirmed(null)
+        }
     }
 
     const changeStatus = (id, status) => dispatch(action.approved(id, status));
@@ -43,14 +46,17 @@ export default ({ remove, edit }) => {
                                     onClick={() => changeStatus(establishment._id, true)}
                                     className="btn btn-success btn-sm">Aprovar</div>
                             }
+
                             {edit &&
                                 <div onClick={() => edit(establishment)} className="btn btn-warning btn-sm">Editar</div>}
 
-                            <div onClick={() => confirm(establishment)}
-                                className="btn btn-danger btn-sm">{confirmed ? "Confirmar" : "Excluir"}</div>
 
-                            {confirmed &&
-                                <div onClick={() => _confirmed(false)}
+                            <div onClick={() => confirm(establishment)}
+                                className="btn btn-danger btn-sm">{confirmed === establishment._id ? "Confirmar" : "Excluir"}</div>
+
+
+                            {confirmed === establishment._id &&
+                                <div onClick={() => _confirmed(null)}
                                     className="btn btn-primary btn-sm">Cancelar</div>}
                         </div>
                     </div>

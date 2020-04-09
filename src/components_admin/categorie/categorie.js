@@ -9,7 +9,8 @@ import Form from './form';
 import List from './list';
 import { action } from '../../store/categorieRedux';
 import Center from '../../components/share_components/center';
-
+var Scroll = require('react-scroll');
+var scroll = Scroll.animateScroll;
 
 
 const Categorie = props => {
@@ -22,13 +23,17 @@ const Categorie = props => {
             ? dispatch(action.store(data))
             : dispatch(action.update(data.id, data));
 
-    const remove = data => dispatch(action.remove(data._id));
+    const remove = data => {
+        dispatch(action.remove(data._id))
+        scroll.scrollToTop();
+    };
 
     const editForm = data => {
         dispatch(change(form, "id", data._id));
         dispatch(change(form, "sector", data.sector));
         dispatch(change(form, "name", data.name));
         _storeOrEdit("editar");
+        scroll.scrollToTop();
     }
 
     return (
@@ -38,7 +43,7 @@ const Categorie = props => {
             <Container>
                 <Title>CATEGORIAS</Title>
                 <Center bottom="20px">Obs: Ao deletar a categorias todos os seus respectivos estebelecimentos serão afetadas</Center>
-                <Row>                    
+                <Row>
                     <div className="col-md-6">
                         <Form onSubmit={store} status={storeOrEdit} />
                     </div>

@@ -22,14 +22,15 @@ export default ({ sectors, _categories, _establishments }) => {
     const setDatas = data => {
         _selected(data._id);
 
-        const categories = data.categories;
+        const allEstablishments = [];
 
-        const establishments = categories.map(categorie => categorie.establishments
-            .reduce((e, c) => e = c, 0)
-        ).filter(Boolean);
+        data.categories.map(c => c.establishments
+            .map(e => allEstablishments.push(e))
+        );
 
-        _categories(categories);
-        _establishments(establishments);
+            console.log(data)
+        _categories(data.categories);
+        _establishments(allEstablishments);
     }
 
 
