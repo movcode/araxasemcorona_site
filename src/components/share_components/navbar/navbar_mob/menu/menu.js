@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MenuBox } from './style';
-import { NavLink } from '../../navbar_style';
+import { NavLink,SignLink } from '../../navbar_style';
 import { action } from '../../../../../store/menuRedux';
 
 
@@ -31,6 +31,9 @@ const Menu = ({ logo }) => {
 
             <br />
             <NavLink onClick={handleMenu} to="/registro">REGISTRAR</NavLink>
+            <br />
+
+            <NavLink onClick={handleMenu} to="/login"><SignLink>LOGIN</SignLink></NavLink>
 
         </div>
 

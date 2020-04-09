@@ -4,10 +4,16 @@ import Center from '../share_components/center';
 import { BoxButton, BorderBox, Button } from '../registry/style';
 import Container from '../share_components/Container';
 import { Row, Accordion, Card } from 'react-bootstrap';
+import { Api } from '../../share/api';
 import './style.css';
+
+
+
+
 
 export default (props) => {
     const [userType, _userType] = useState(1);
+
     return (<BackgroundDeg color="#FFF" >
         <BoxDeg>
             <Center>
@@ -31,7 +37,7 @@ export default (props) => {
                             </BoxButton>
                         </Row>
                     </BorderBox>
-                    
+
                     <Accordion defaultActiveKey="0">
                         <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="0" >

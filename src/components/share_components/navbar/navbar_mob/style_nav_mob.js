@@ -4,7 +4,7 @@ import { PrimaryColor } from '../../../../share/theme';
 
 export const NavMob = styled.div`
 padding-top:20px;
-padding-bottom:40px;
+padding-bottom:12px;
 position: fixed;
 z-index:1000;
 background:${PrimaryColor};
