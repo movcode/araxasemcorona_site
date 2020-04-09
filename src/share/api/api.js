@@ -1,10 +1,13 @@
 import axios from 'axios';
 import StorageKeys from './storageKeys';
 
+
+const dev = false;
+
+
 const local = "http://localhost:3001/";
 const prod = "https://www.araxasemcorona.com.br/rest/";
 
-const dev = true;
 
 const BASE_URL = dev ? local : prod;
 const URL_API = `${BASE_URL}api/`;
