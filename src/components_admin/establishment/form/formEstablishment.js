@@ -63,18 +63,18 @@ const Form = ({ handleSubmit, status }) => {
             <Field
                 name="id"
                 component="input"
-                type="text" />
+                type="hidden" />
 
             <Field
                 name="img"
                 component="input"
-                type="text" />
+                type="hidden" />
 
             <Field
                 name="delivery"
                 component="input"
-                type="text" 
-                value="true"/>
+                type="hidden" 
+                value="false"/>
             
 
             <div className="form-group ">
