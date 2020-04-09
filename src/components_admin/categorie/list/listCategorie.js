@@ -44,6 +44,7 @@ export default ({ remove, edit }) => {
                 <select className="form-control" style={{ color: "black" }}
                     onChange={(e) => filter(e.target.value)}>
                     <option value="" disabled>Selecione um setor</option>
+                    <option value="all">Buscar por setor</option>
                     <option value="all">Todos</option>
                     {sectors && sectors.map(sector =>
                         <option key={sector._id} value={sector._id}>{sector.title}</option>

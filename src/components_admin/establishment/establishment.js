@@ -38,8 +38,7 @@ export default props => {
         scroll.scrollToTop();
     }
 
-    const editForm = data => {
-        console.log(data);
+    const editForm = data => {        
         dispatch(change(FormName, "id", data._id));
         dispatch(change(FormName, "name", data.name));
         dispatch(change(FormName, "email", data.email));

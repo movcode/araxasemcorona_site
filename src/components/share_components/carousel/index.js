@@ -28,7 +28,6 @@ export default ({ children, sectors, pages }) => {
         <>
             <Carousel
                 infinite
-
                 addArrowClickHandler
                 arrowLeft={<Icon src="/img/back.svg" />}
                 arrowRight={<Icon src="/img/next.svg" />}
@@ -43,7 +42,6 @@ export default ({ children, sectors, pages }) => {
                         // animationSpeed: 1000,
                     }
                 }}
-
             >
 
                 {children}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { reduxForm, Field, change } from 'redux-form';
 import { FormStyle } from '../../../components/share_components/global_style';
@@ -14,7 +14,6 @@ const Form = ({ handleSubmit, status }) => {
     const { response } = useSelector(state => state.response);
     const dispatch = useDispatch();
     const [imgUpload, _imgUpload] = useState(false);
-    const [categoriesFiltered, _categoriesFiltered] = useState(false);
     const [categories, _categories] = useState(false);
     const [sectors, _sectors] = useState(false);
 
@@ -38,11 +37,22 @@ const Form = ({ handleSubmit, status }) => {
     }, [])
 
 
-    const filterCategorie = data => {
-        data && console.log(data.categories);
-        // const filtered = categories && categories.filter(categorie => categorie.sector === id);
-        // _categoriesFiltered(filtered);
-    }
+    const filterCategorie = useCallback(id => sectors
+        .filter(s => s._id === id)
+        .map(s => _categories(s.categories)
+        ), [sectors]);
+
+
+    useEffect(() => {
+
+        if (status === "editar" && form && form.values
+            && form.values.sector) {
+            const id = form.values.sector;
+
+            filterCategorie(id);
+        }
+
+    }, [status, form, filterCategorie]);
 
 
     return (
@@ -60,12 +70,10 @@ const Form = ({ handleSubmit, status }) => {
             <Field
                 name="delivery"
                 component="input"
-                type="hidden" 
-                value="false"/>
-            
+                type="hidden"
+                value="false" />
 
             <div className="form-group ">
-
                 <Field
                     required
                     name="name"
@@ -107,7 +115,7 @@ const Form = ({ handleSubmit, status }) => {
                         component="select">
                         <option value="" disabled >Selecione o seu setor</option>
                         {sectors && sectors.map(sector =>
-                            <option key={sector._id} value={sector}>{sector.title}</option>
+                            <option key={sector._id} value={sector._id}>{sector.title}</option>
                         )}
                     </Field>
                 </div>
@@ -118,13 +126,10 @@ const Form = ({ handleSubmit, status }) => {
                         className="form-control"
                         component="select">
                         <option value="" disabled >Selecione uma categoria </option>
-                        {
-                            categoriesFiltered &&
-                            categoriesFiltered.map(categorie =>
-                                <option key={categorie._id} value={categorie._id}>{categorie.name}</option>)
-                            // : categories && categories.map(categorie =>
-                            //     <option key={categorie._id} value={categorie._id}>{categorie.name}</option>)
-                        }
+                        {categories && categories.map(c =>
+                            <option key={c._id} value={c._id}>{c.name}</option>
+                        )}
+
                     </Field>
                 </div>
             </Row>
@@ -194,18 +199,18 @@ const Form = ({ handleSubmit, status }) => {
 
 
             <div className="form-group">
-                <button 
-                
-                disabled={form
-                    && form.values
-                    && form.values.name
-                    && form.values.email
-                    && form.values.sector
-                    && form.values.categorie                    
-                    && form.values.hourWork
-                    && form.values.whatsapp
-                    && form.values.description ? false : true} 
-                type="submit" className="btn btn-warning btn-block">
+                <button
+
+                    disabled={form
+                        && form.values
+                        && form.values.name
+                        && form.values.email
+                        && form.values.sector
+                        && form.values.categorie
+                        && form.values.hourWork
+                        && form.values.whatsapp
+                        && form.values.description ? false : true}
+                    type="submit" className="btn btn-warning btn-block">
                     {status === "editar" ? "EDITAR" : "CADASTRAR"}
                 </button>
             </div>
