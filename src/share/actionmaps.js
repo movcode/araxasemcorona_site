@@ -12,13 +12,13 @@ export default ({
         store: "@@ESTABLISHMENT/CREATE",
         remove: "@@ESTABLISHMENT/DELETE",
         update: "@@ESTABLISHMENT/UPDATE",
-        approved: "@@ESTABLISHMENT/APPROVED",        
+        approved: "@@ESTABLISHMENT/APPROVED",
     },
     delivery: {
         list: "@@DELIVERY/LIST",
         store: "@@DELIVERY/CREATE",
         remove: "@@DELIVERY/DELETE",
-        update: "@@DELIVERY/UPDATE",          
+        update: "@@DELIVERY/UPDATE",
     },
     login: {
         auth: "@@LOGIN/AUTH"
@@ -34,16 +34,19 @@ export default ({
         list: "@@CATEGORIE/LIST",
         store: "@@CATEGORIE/CREATE",
         remove: "@@CATEGORIE/REMOVE",
-        update: "@@CATEGORIE/UPDATE",        
+        update: "@@CATEGORIE/UPDATE",
     },
     user: {
         list: "@@USER/LIST",
         store: "@@USER/CREATE",
         remove: "@@USER/REMOVE",
-        update: "@@USER/UPDATE",        
+        update: "@@USER/UPDATE",
+    },
+    contact: {
+        send: "@@CONTACT/SEND"
     },
     config: {
-        list: "@@CONFIGS/LIST",          
-        update: "@@CONFIGS/UPDATE",        
+        list: "@@CONFIGS/LIST",
+        update: "@@CONFIGS/UPDATE",
     }
 });

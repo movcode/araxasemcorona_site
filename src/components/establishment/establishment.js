@@ -24,7 +24,7 @@ const Establishment = ({ sectors }) => {
                     .map(e => all.push(e))
                 )
             )
-            _establishments(all);            
+            _establishments(all);
         }
     }, [establishments, sectors]);
 
@@ -56,9 +56,9 @@ const Establishment = ({ sectors }) => {
                 <Center>
                     <div className="col-md-12">
                         {
-                            establishments !== "empty"
+                            establishments !== "empty" && establishments.length > 0
                                 ? <ListEstablishment establishments={establishments} />
-                                : <div style={{ marginTop: "80px" }}>
+                                : <div >
                                     <Center>
                                         <Text color="black">Nenhum estabelecimento cadastrado nesta categoria. </Text>
                                     </Center>

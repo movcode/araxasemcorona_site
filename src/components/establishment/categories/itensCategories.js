@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import styled from 'styled-components';
 import Carousel from '../../share_components/carousel';
 
@@ -28,26 +27,23 @@ export default ({ categories, _establishments }) => {
         _selected(data._id);
 
         !data.establishments[0] ? _establishments("empty") : _establishments(data.establishments);
-    }
-
+    }    
 
     return (
         <div >
             {
-                categories &&
-                    categories != "" &&
-                    categories[0].name === "Sem Categoria" ? <></>
-                    : <Carousel pages="6" pagesMob={3}>
-                        {
-                            categories && categories.map(data =>
-                                <Itens
-                                    key={data._id}
-                                    onClick={() => setEstablishment(data)}
-                                    active={selected === data._id ? 1 : 0}>
-                                    {data.name}
-                                </Itens>)
-                        }
-                    </Carousel>
+                categories.length > 0 && categories[0].name !== "Sem Categoria" &&
+                <Carousel pages="6" pagesMob={3}>
+                    {
+                        categories && categories.map(data =>
+                            <Itens
+                                key={data._id}
+                                onClick={() => setEstablishment(data)}
+                                active={selected === data._id ? 1 : 0}>
+                                {data.name}
+                            </Itens>)
+                    }
+                </Carousel>
             }
 
         </div>);

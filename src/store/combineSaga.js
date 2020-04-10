@@ -8,6 +8,7 @@ import { EstablishmentAdminSaga } from './establishmentAdminRedux';
 import { UserSaga } from './userRedux';
 import { DeliverySaga } from './deliveryRedux';
 import { ConfigSaga } from './configSaga';
+import { ContactSaga } from './contactRedux';
 
 export default function* combineSagas() {
     yield all([
@@ -19,5 +20,6 @@ export default function* combineSagas() {
         UserSaga(),
         DeliverySaga(),
         ConfigSaga(),
+        ContactSaga(),
     ]);
 }

@@ -37,7 +37,7 @@ const Form = ({ handleSubmit }) => {
         <div className="form-group ">
             <Field
                 required
-                name="body"
+                name="text"
                 component="textarea"
                 className="form-control"
                 rows="4"

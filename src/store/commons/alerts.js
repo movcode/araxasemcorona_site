@@ -79,3 +79,14 @@ export const Upload = (status,msg) => status ?
         text: msg,
         icon: "error",
     });
+export const Contact = (status,msg) => status ?
+    swal({
+        title: "Sucesso!",
+        text: msg,
+        icon: "success",
+    })
+    : swal({
+        title: "Error!",
+        text: msg,
+        icon: "error",
+    });
