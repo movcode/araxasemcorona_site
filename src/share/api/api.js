@@ -1,14 +1,12 @@
 import axios from 'axios';
 import StorageKeys from './storageKeys';
 
-const dev = false;
-
-
 const local = "http://localhost:3001/";
 const prod = "https://www.araxasemcorona.com.br/rest/";
 
-const BASE_URL = dev ? local : prod;
+const dev = false;
 
+const BASE_URL = dev ? local : prod;
 const URL_API = `${BASE_URL}api/`;
 
 const headerAuth = () => ({
@@ -52,13 +50,7 @@ export default ({
     upload: async (url, file) => {
         const formData = new FormData();
         formData.append('file', file)
-        return await axios.post(url, formData, {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'multipart/form-data',
-                'Authorization': `Bearer ${localStorage.getItem(StorageKeys.token)}`
-            }
-        })
+        return await axios.post(url, formData, false);
     }
 })
 

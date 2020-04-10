@@ -14,11 +14,10 @@ const sendFile = async (img) => await Api.upload(Api.url.upload, img);
 
 
 function* upload(ac) {
-    const { img } = ac.payload;    
-    console.log(img);
+    const { img } = ac.payload;
     try {
         const resp = yield call(sendFile, img);
-        if (resp) {
+        if (resp && resp.data) {
             yield dispatch(true, { img: `${Api.url.base}${resp.data}` })
             return yield Alert.Upload(true, "");
         } else {
@@ -27,11 +26,12 @@ function* upload(ac) {
         }
 
     } catch (err) {
+        yield console.log(err.response)
         yield dispatch(false, Msgs(false).send)
-        return yield Alert.Upload(false, err.response.data);
+        return yield Alert.Upload(false, err.response.data.error);
     }
 }
 
 export default function* observer() {
-    yield takeLatest(ActionMap.firebase_storage.upload, upload);
+    yield takeLatest(ActionMap.upload.send, upload);
 }

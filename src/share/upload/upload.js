@@ -8,13 +8,13 @@ import { Loader } from '../../components/share_components/global_style';
 import swal from 'sweetalert';
 
 
-var md5 = require('md5');
 
 const DropZone = ({ title, mTop, img, logo }) => {
     const { response } = useSelector(state => state.response);
-    const [errorUpload, _errorUpload] = useState(null);
     const [load, _load] = useState(0);
     const disptach = useDispatch();
+
+
 
     useEffect(() => {
         if (response.from === "upload") _load(0)
@@ -29,44 +29,54 @@ const DropZone = ({ title, mTop, img, logo }) => {
         }
     }
 
-    const getNameImage = file => {
-        const randoName = md5(Math.floor(Math.random() * 1100000));
-        const splitname = file.name.split(".");
-        const ext = splitname[1];
-        const name = `${randoName}.${ext}`;
-        return name;
-    }
 
     const upload = file => {
         _load(1);
-        const name = getNameImage(file);
-        disptach(action.upload(file, name))
+        disptach(action.upload(file))
     }
 
     const prepareImg = file => {
         const getfile = file[0];
 
+        if (!isImage(getfile.type)) {
+            swal({
+                title: "Error!",
+                text: "Arquivo inválido! ",
+                icon: "error",
+            });
+            return false;
+        }
+
+        if (getfile.size > 100000) {
+            swal({
+                title: "Imagem muito grande",
+                text: "Selecione uma imagem um pouco menor",
+                icon: "error",
+            });
+            return false;
+        }
+
 
         var reader = new FileReader();
         reader.onload = (function (entry) {
-            // The Image() constructor creates a new HTMLImageElement instance.
             var image = new Image();
             image.src = entry.target.result;
             image.onload = function () {
 
-                if (logo === 1) {
-                    isImage(getfile.type) ? upload(getfile) : _errorUpload("Arquivo inválido!");
+                if (logo) {
+                    upload(getfile);
                 } else {
                     if (this.width < 500) {
-                        return swal({
-                            title: "Error!",
-                            text: "Selecione uma imagem maior, acima de 500x500",
+                        swal({
+                            title: "Imagem pequena!",
+                            text: "Seleciona uma imagem do seguinte tamanho: 500px x 500px ",
                             icon: "error",
-                        })
+                        });
                     } else {
-                        isImage(getfile.type) ? upload(getfile) : _errorUpload("Arquivo inválido!");
+                        upload(getfile);
                     }
                 }
+
             };
         });
 
@@ -77,11 +87,11 @@ const DropZone = ({ title, mTop, img, logo }) => {
     return (
         <Dropzone onDrop={acceptedFiles => prepareImg(acceptedFiles)}>
             {({ getRootProps, getInputProps }) => (
-                <BoxDropzone top={mTop} error={!errorUpload ? 0 : 1}>
+                <BoxDropzone top={mTop}>
                     <div {...getRootProps()}>
 
                         {!img
-                            ? <Label style={{ cursor: 'pointer' }}>{errorUpload === null ? title + " (tamanho recomendado 500x500px)" : errorUpload}</Label>
+                            ? <Label style={{ cursor: 'pointer' }}>{title + " (tamanho recomendado 500x500px)"}</Label>
                             : <img src={img} alt="img uploaded" className="img-fluid" />
                         }
                         <Center>

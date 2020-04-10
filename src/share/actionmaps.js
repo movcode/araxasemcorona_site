@@ -1,7 +1,7 @@
 export default ({
-    firebase_storage: {
-        upload: "@@FIREBASE/UPLOAD",
-        getImage: "@@FIREBASE/GETIMAGE"
+    upload: {
+        send: "@@UPLOAD/UPLOAD",
+        getImage: "@@UPLOAD/GETIMAGE"
     },
     response: {
         show: "@@RESPONSE/RESULT",

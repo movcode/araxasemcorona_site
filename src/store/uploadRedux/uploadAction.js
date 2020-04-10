@@ -1,12 +1,8 @@
 import Action from '../../share/actionmaps';
 export default {
 
-    upload: (img, name) => ({
-        type: Action.firebase_storage.upload,
-        payload: { img, name }
-    }),
-    getImg: (img) => ({
-        type: Action.firebase_storage.getImage,
+    upload: (img) => ({
+        type: Action.upload.send,
         payload: { img }
-    }),
+    })    
 }
