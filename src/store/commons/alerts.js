@@ -68,3 +68,14 @@ export const Send = (status) => status ?
         text: "Não foi possível enviar o conteúdo",
         icon: "error",
     });
+export const Upload = (status,msg) => status ?
+    swal({
+        title: "Sucesso!",
+        text: "Conteúdo enviado com sucesso",
+        icon: "success",
+    })
+    : swal({
+        title: "Error!",
+        text: msg,
+        icon: "error",
+    });

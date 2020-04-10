@@ -15,11 +15,12 @@ const sendFile = async (img) => await Api.upload(Api.url.upload, img);
 
 function* upload(ac) {
     const { img } = ac.payload;    
+    console.log(img);
     try {
         const resp = yield call(sendFile, img);
         if (resp) {
             yield dispatch(true, { img: `${Api.url.base}${resp.data}` })
-            return yield Alert.Send(true);
+            return yield Alert.Upload(true, "");
         } else {
             yield dispatch(false, Msgs(false).send)
             return yield Alert.Send(false);
@@ -27,7 +28,7 @@ function* upload(ac) {
 
     } catch (err) {
         yield dispatch(false, Msgs(false).send)
-        return yield Alert.Send(false);
+        return yield Alert.Upload(false, err.response.data);
     }
 }
 
