@@ -48,13 +48,13 @@ const Login = props => {
     return (<>
         {load && <Load />}
         <Background style={{ height: "100vh" }}>
-            <Menu logo="https://firebasestorage.googleapis.com/v0/b/araxasemcorona.appspot.com/o/26e8edb203d1e4e05c5a9b8252586e7d.png?alt=media&token=a50403ec-15b9-450a-b9e1-444e4b435969"/>
+            <Menu logo="https://www.araxasemcorona.com.br/rest/images/upload/0d54ed423d9f714eea918fa2.png"/>
             <Container style={{ marginTop: "10px" }}>
                 <Center>
                     <Title color="white" left="12px" sizeM="30px" size="20px">Alterar informações do estabelecimento</Title>
                 </Center>
                 <LoginForm onSubmit={login} />
-                <LoginForm />
+                
             </Container>
         </Background>
 
