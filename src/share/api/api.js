@@ -1,7 +1,7 @@
 import axios from 'axios';
 import StorageKeys from './storageKeys';
 
-const dev = true;
+const dev = false;
 
 
 const local = "http://localhost:3001/";
