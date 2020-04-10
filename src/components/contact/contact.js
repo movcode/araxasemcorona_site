@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, BackgroundDeg, BoxDeg } from '../share_components/global_style';
+import { Title, BackgroundDeg, BoxDeg, Href } from '../share_components/global_style';
 
 import Center from '../share_components/center';
 import Form from './form';
@@ -22,10 +22,14 @@ const Contact = props => {
             </Center>
 
 
-            <Center top="20px" bottom="80px">
+            <Center top="20px" bottom="40px">
                 <a href="https://www.facebook.com/buganicomunicacao/">
                     <img width="80" src="/img/bugani.svg" alt="logo bugani" />
                 </a>
+            </Center>
+            <Center  bottom="80px">
+                <Href color="black" target="_blank" href="https://www.facebook.com/araxasemcorona" style={{fontSize:'25px', marginRight:'10px'}} className="ti-facebook"></Href>
+                <Href color="black" target="_blank" href="https://www.instagram.com/araxasemcorona/" style={{fontSize:'25px'}} className="ti-instagram"></Href>
             </Center>
 
         </BoxDeg>

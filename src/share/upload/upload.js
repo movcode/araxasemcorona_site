@@ -47,14 +47,14 @@ const DropZone = ({ title, mTop, img, logo }) => {
             return false;
         }
 
-        if (getfile.size > 100000) {
-            swal({
-                title: "Imagem muito grande",
-                text: "Selecione uma imagem um pouco menor",
-                icon: "error",
-            });
-            return false;
-        }
+        // if (getfile.size > 100000) {
+        //     swal({
+        //         title: "Imagem muito grande",
+        //         text: "Selecione uma imagem um pouco menor",
+        //         icon: "error",
+        //     });
+        //     return false;
+        // }
 
 
         var reader = new FileReader();

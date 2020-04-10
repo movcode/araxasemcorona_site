@@ -7,6 +7,8 @@ height:100vh;
 overflow:hidden;
 `;
 
+
+
 export const BoxTitle = styled.div`
 
 @media(max-width:1024px){
