@@ -3,16 +3,20 @@ import styled from 'styled-components';
 import Carousel from '../../share_components/carousel';
 
 const Itens = styled.div`
-background: transparent;
+    width:100%;
+    height:40px;
+    line-height: 40px;        
     color: #717171;
-    border: 1px solid #dcdcdc;
-    padding-top:8px;
-    padding-bottom:8px;   
-    padding-left:20px;
-    padding-right:20px;    
-    border-radius: 4px;
-    margin:15px;
-    background:${props => props.active === 1 ? "#ededed" : "white"};
+    border: 1px solid #dcdcdc;    
+    border-radius: 10px;
+    padding-left:5px;
+    padding-right:5px;
+    margin-left:5px;
+    margin-right:5px;    
+    text-align:center;    
+    overflow:hidden;
+    
+    background:${props => props.active === 1 ? "#ededed" : "white"};    
     cursor:pointer;
     &:hover{
         background:#ededed;
@@ -27,16 +31,17 @@ export default ({ categories, _establishments }) => {
         _selected(data._id);
 
         !data.establishments[0] ? _establishments("empty") : _establishments(data.establishments);
-    }    
+    }
 
     return (
         <div >
             {
                 categories.length > 0 && categories[0].name !== "Sem Categoria" &&
-                <Carousel pages="6" pagesMob={3}>
+                <Carousel pages="5" pagesMob={3} >
                     {
                         categories && categories.map(data =>
                             <Itens
+                                className="text-truncate"
                                 key={data._id}
                                 onClick={() => setEstablishment(data)}
                                 active={selected === data._id ? 1 : 0}>

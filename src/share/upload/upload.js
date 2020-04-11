@@ -9,7 +9,7 @@ import swal from 'sweetalert';
 
 
 
-const DropZone = ({ title, mTop, img, logo }) => {
+const DropZone = ({ title, mTop, img, logo, icon }) => {
     const { response } = useSelector(state => state.response);
     const [load, _load] = useState(0);
     const disptach = useDispatch();
@@ -32,7 +32,9 @@ const DropZone = ({ title, mTop, img, logo }) => {
 
     const upload = file => {
         _load(1);
-        disptach(action.upload(file))
+        icon
+            ? disptach(action.upload_sector(file))
+            : disptach(action.upload(file))
     }
 
     const prepareImg = file => {
@@ -46,7 +48,7 @@ const DropZone = ({ title, mTop, img, logo }) => {
             });
             return false;
         }
-        
+
         // if (getfile.size > 1024000) {
         //     swal({
         //         title: "Imagem muito grande",
@@ -63,7 +65,7 @@ const DropZone = ({ title, mTop, img, logo }) => {
             image.src = entry.target.result;
             image.onload = function () {
 
-                if (logo) {
+                if (logo || icon) {
                     upload(getfile);
                 } else {
                     if (this.width < 500) {

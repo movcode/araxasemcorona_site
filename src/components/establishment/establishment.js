@@ -38,7 +38,7 @@ const Establishment = ({ sectors }) => {
                 </Center>
 
                 <Center>
-                    <div className="col-md-6">
+                    <div className="col-md-9">
                         <SectorItens sectors={sectors}
                             _establishments={_establishments}
                             _categories={_categories} />
@@ -58,7 +58,7 @@ const Establishment = ({ sectors }) => {
                         {
                             establishments !== "empty" && establishments.length > 0
                                 ? <ListEstablishment establishments={establishments} />
-                                : <div >
+                                : <div style={{marginTop:"60px"}}>
                                     <Center>
                                         <Text color="black">Nenhum estabelecimento cadastrado nesta categoria. </Text>
                                     </Center>

@@ -1,8 +1,9 @@
 export default ({
     upload: {
         send: "@@UPLOAD/UPLOAD",
-        getImage: "@@UPLOAD/GETIMAGE"
+        send_sector: "@@UPLOAD/SECTOR"
     },
+    
     response: {
         show: "@@RESPONSE/RESULT",
         clear: "@@RESPONSE/CLEAR"

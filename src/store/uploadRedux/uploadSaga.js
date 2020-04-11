@@ -11,9 +11,10 @@ const dispatch = (success, response) => success
 
 
 const sendFile = async (img) => await Api.upload(Api.url.upload, img);
+const sendFileSector = async (img) => await Api.upload(Api.url.upload_icon, img,);
 
 
-function* upload(ac) {
+function* upload(ac) {    
     const { img } = ac.payload;
     try {
         const resp = yield call(sendFile, img);
@@ -32,6 +33,25 @@ function* upload(ac) {
     }
 }
 
+function* upload_sector(ac) {    
+    const { img } = ac.payload;
+    try {
+        const resp = yield call(sendFileSector, img);
+        if (resp && resp.data) {
+            yield dispatch(true, { img: `${Api.url.base}${resp.data}` })
+            return yield Alert.Upload(true, "");
+        } else {
+            yield dispatch(false, Msgs(false).send)
+            return yield Alert.Send(false);
+        }
+
+    } catch (err) {        
+        yield dispatch(false, Msgs(false).send)
+        return yield Alert.Upload(false, err.response.data.error);
+    }
+}
+
 export default function* observer() {
     yield takeLatest(ActionMap.upload.send, upload);
+    yield takeLatest(ActionMap.upload.send_sector, upload_sector);
 }

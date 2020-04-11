@@ -12,7 +12,8 @@ text-align:center;
 `;
 
 const Box = styled.div`
-width:120px;
+
+background:#fff;
 `;
 
 
@@ -28,7 +29,7 @@ export default ({ sectors, _categories, _establishments }) => {
             .map(e => allEstablishments.push(e))
         );
 
-            console.log(data)
+        console.log(data)
         _categories(data.categories);
         _establishments(allEstablishments);
     }
