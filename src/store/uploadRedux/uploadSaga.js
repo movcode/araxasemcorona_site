@@ -19,8 +19,7 @@ function* upload(ac) {
     try {
         const resp = yield call(sendFile, img);
         if (resp && resp.data) {
-            yield dispatch(true, { img: `${Api.url.base}${resp.data}` })
-            return yield Alert.Upload(true, "");
+            yield dispatch(true, { img: `${Api.url.base}${resp.data}` })            
         } else {
             yield dispatch(false, Msgs(false).send)
             return yield Alert.Send(false);
@@ -38,8 +37,7 @@ function* upload_sector(ac) {
     try {
         const resp = yield call(sendFileSector, img);
         if (resp && resp.data) {
-            yield dispatch(true, { img: `${Api.url.base}${resp.data}` })
-            return yield Alert.Upload(true, "");
+            yield dispatch(true, { img: `${Api.url.base}${resp.data}` })            
         } else {
             yield dispatch(false, Msgs(false).send)
             return yield Alert.Send(false);

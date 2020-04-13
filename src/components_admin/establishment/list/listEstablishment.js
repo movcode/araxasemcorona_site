@@ -53,6 +53,9 @@ export default ({ remove, edit }) => {
 
     return (<>
         <div>
+            <div style={{marginBottom:"5px"}}>
+                <b>{establishments.length}</b> estabelecimentos cadastrados
+            </div>
             <div className="form-group">
                 <select className="form-control" style={{ color: "black" }}
                     onChange={(e) => filter(e.target.value)}>
@@ -72,8 +75,16 @@ export default ({ remove, edit }) => {
                         title={data.name}
                         subtitle={
                             <div>
-                                <Row style={{ color: "black", margin: '5px' }}>{data.categorie.name}</Row>
-                                <div className="btn-group btn-group-toggle" data-toggle="buttons" style={{ marginBottom: "10px" }}>
+
+                                <Row style={{ color: "black", margin: '5px' }}>
+                                    {data.categorie ?
+                                        data.categorie.name
+                                        : "Sem Categoria"}
+                                </Row>
+                                <div
+                                    className="btn-group btn-group-toggle"
+                                    data-toggle="buttons"
+                                    style={{ marginBottom: "10px" }}>
                                     {data.approved
                                         ? <div
                                             onClick={() => changeStatus(data._id, false)}

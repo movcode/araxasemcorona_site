@@ -37,13 +37,13 @@ function* store(ac) {
         const resp = yield call(storeInApi, payload);
         if (resp.status === 200) {
             yield list();
-            return yield Alert.Store(true);
+            return yield Alert.Custom(true, "Aguardando aprovação do administrador...");
         }
         yield dispatch(false, Msgs(false).store)
-        return yield Alert.Store(false);
+        return yield Alert.Store(false, "Error ao adicionar o estabelecimento");
     } catch (err) {
         yield dispatch(false, Msgs(false).store)
-        return yield Alert.Store(false);
+        return yield Alert.Store(false, err.response.data.error);
     }
 }
 

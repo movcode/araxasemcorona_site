@@ -13,9 +13,12 @@ background-color: rgba(0,0,0,.9);
 `;
 
 export const Container = styled.div`
-margin-top:180px;
 @media(max-width:1024px){
     margin-left:10px;
+    margin-top:60px;
+}
+@media(min-width:1024px){
+    margin-top:180px;
 }
 
 `;
@@ -35,7 +38,7 @@ margin-bottom:20px;
 padding-bottom:20px;
 `;
 export const HeaderContent = styled.div`
-padding-left:10px;
+
 `;
 
 export const BoxFigure = styled.div`    
@@ -57,16 +60,17 @@ export const Title = styled.h3`
 `;
 
 export const Itens = styled.div`
+width:100%;
 margin-bottom:8px;
 `;
 
 export const Close = styled.div`
 width:40px;
 height:auto;
-position:relative;
+position:absolute;
 right:0;
 float:right;
 margin:20px;
 cursor:pointer;
-
+z-index:30001;
 `;

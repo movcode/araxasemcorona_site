@@ -15,7 +15,7 @@ import {
     HeaderContent,
     Title
 } from './style';
-import { Row } from 'react-bootstrap';
+import Row  from '../../components/share_components/row';
 import Center from '../share_components/center';
 import { Api } from '../../share/api';
 
@@ -53,25 +53,25 @@ export default props => {
                 <Container className="container">
                     <Header>
                         <Row >
-
-                            <BoxFigure className="col-3 col-md-3" >
+                            <BoxFigure className="col-5 col-md-3" >
                                 <Figure src={establishment.img} className="img-fluid" />
                             </BoxFigure>
 
-                            <div className="col-9 col-md-9">
+                            <div className="col-7 col-md-9">
                                 <HeaderContent>
                                     <Row>
                                         <Title>{establishment.name}</Title>
                                     </Row>
 
-                                    <Row>
-                                        <Itens className="col-md-4">
+                                    <Row className="col-md-4">
+                                        <Itens >
                                             <div><img src="/img/ic_time.png" alt="" /> {establishment.hourWork}</div>
                                         </Itens>
-                                        <Itens className="col-md-4">
+                                        <Itens >
                                             <div><img src="/img/ic_phone.png" alt="" /> {establishment.whatsapp}</div>
                                         </Itens>
-                                        <Itens className="col-md-4">
+                                       
+                                        <Itens >
                                             {establishment.social &&
                                                 <Href href={establishment.social} target="_blank">
                                                     <div><img src={

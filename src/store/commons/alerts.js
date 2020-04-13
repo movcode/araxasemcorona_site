@@ -10,15 +10,15 @@ export const List = (status) => status ?
     });
 
 
-export const Store = (status) => status ?
+export const Store = (status,msg) => status ?
     swal({
-        title: "Adicionado com sucesso!",
-        text: "Aguardando aprovação do administrador",
+        title: "Sucesso!",
+        text: "Conteúdo adicionado com sucesso",
         icon: "success",
     })
     : swal({
         title: "Error!",
-        text: "Não foi possível adicionar o conteúdo",
+        text: msg,
         icon: "error",
     });
 
@@ -90,3 +90,15 @@ export const Contact = (status,msg) => status ?
         text: msg,
         icon: "error",
     });
+export const Custom = (status,msg) => status ?
+    swal({
+        title: "Sucesso!",
+        text: msg,
+        icon: "success",
+    })
+    : swal({
+        title: "Error!",
+        text: msg,
+        icon: "error",
+    });
+

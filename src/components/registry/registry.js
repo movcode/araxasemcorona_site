@@ -8,15 +8,23 @@ import { BoxButton, BorderBox, Button } from './style';
 import { action as actionEstablishment } from '../../store/establishmentAdminRedux';
 import { action as actionDelivery } from '../../store/deliveryRedux';
 import Container from '../share_components/Container';
+import { reset, change } from 'redux-form';
 
 
 const Registry = ({ sectors }) => {
     const [userType, _userType] = useState(1);
     const dispatch = useDispatch();
 
-    const addEstablishment = data => dispatch(actionEstablishment.store(data));
+    const addEstablishment = data => {
+        dispatch(actionEstablishment.store(data));
+        dispatch(reset("formEstablishment"));
+        dispatch(change('formEstablishment', 'img', null))
+    }
 
-    const addDeliveryman = data => dispatch(actionDelivery.store(data));
+    const addDeliveryman = data => {
+        dispatch(actionDelivery.store(data));
+        dispatch(reset("formDelivery"));
+    }
 
     return (<BackgroundDeg bottom="120">
         <BoxDeg>
@@ -25,18 +33,18 @@ const Registry = ({ sectors }) => {
                     <div className="col-md-4" >
                         <Title color="white" bottom="60px" size="60px">Cadastro</Title>
                         <Center>
-                            
+
                             <Text align="left">
                                 Agora é o momento de você ajudar a nossa cidade e alavancar o seu negócio neste momento de isolamento social.
                             <br />
-                            <br />
+                                <br />
                             Para você que trabalha com delivery, iremos publicar <Bold>gratuitamente</Bold> seu estabelecimento em nossa plataforma.
                             <br />
-                            <br />
+                                <br />
                             E para você, entregador, iremos indicar o seu trabalho para os estabelecimentos indicados aqui.
-                            <br/>
+                            <br />
                             É hora de nos unirmos!
-                            
+
                             </Text>
                         </Center>
                     </div>

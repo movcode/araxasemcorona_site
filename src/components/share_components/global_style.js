@@ -103,7 +103,7 @@ export const Href = styled.a`
 color:${props => props.color ? props.color : "#fff"};
 text-decoration:none;
 &:hover{
-    color:${props => props.color ? props.color : "#fff"};
+color:${props => props.color ? props.color : "#fff"};
     text-decoration:none;
 };
 `;

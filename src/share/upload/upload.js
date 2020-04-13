@@ -8,7 +8,6 @@ import { Loader } from '../../components/share_components/global_style';
 import swal from 'sweetalert';
 
 
-
 const DropZone = ({ title, mTop, img, logo, icon }) => {
     const { response } = useSelector(state => state.response);
     const [load, _load] = useState(0);
@@ -94,7 +93,7 @@ const DropZone = ({ title, mTop, img, logo, icon }) => {
 
                         {!img
                             ? <Label style={{ cursor: 'pointer' }}>{title + " (tamanho recomendado 500x500px)"}</Label>
-                            : <img src={img} alt="img uploaded" className="img-fluid" />
+                            : <img width="90" src={img} alt="img uploaded" className="img-fluid" />
                         }
                         <Center>
                             <Loader active={load} src="/img/loader.gif" />

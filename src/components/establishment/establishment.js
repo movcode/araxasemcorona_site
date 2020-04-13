@@ -13,7 +13,8 @@ const Establishment = ({ sectors }) => {
     const [establishments, _establishments] = useState(false);
 
     useEffect(() => {
-        sectors && _categories(sectors[0].categories);
+        sectors && sectors[0]&&
+            _categories(sectors[0].categories);
     }, [sectors]);
 
     useEffect(() => {
@@ -58,7 +59,7 @@ const Establishment = ({ sectors }) => {
                         {
                             establishments !== "empty" && establishments.length > 0
                                 ? <ListEstablishment establishments={establishments} />
-                                : <div style={{marginTop:"60px"}}>
+                                : <div style={{ marginTop: "60px" }}>
                                     <Center>
                                         <Text color="black">Nenhum estabelecimento cadastrado nesta categoria. </Text>
                                     </Center>

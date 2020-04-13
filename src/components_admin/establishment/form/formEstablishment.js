@@ -7,6 +7,9 @@ import { Row } from 'react-bootstrap';
 import MaskInput from '../../../share/maskinput';
 import Upload from '../../../share/upload';
 import { Api } from '../../../share/api';
+import { v4 as uuidv4 } from 'uuid';
+var md5 = require('md5');
+
 
 
 const Form = ({ handleSubmit, status }) => {
@@ -35,6 +38,13 @@ const Form = ({ handleSubmit, status }) => {
         fetch();
         return () => isSubscribe = false;
     }, [])
+
+
+    useEffect(() => {
+        const credential = md5(uuidv4());
+        dispatch(change("formEstablishmentAdmin", "password", "axasemcovid2019"))
+        dispatch(change("formEstablishmentAdmin", "email", credential))
+    }, [dispatch])
 
 
     const filterCategorie = useCallback(id => sectors
@@ -85,17 +95,17 @@ const Form = ({ handleSubmit, status }) => {
 
             <Row>
                 <div className="form-group col-md-6">
-
+                    <Label>Usuário (padrão)</Label>
                     <Field
                         required
                         name="email"
                         component="input"
                         className="form-control"
-                        type="email"
-                        placeholder="Digite o email" />
+                        type="text"
+                        placeholder="Digite um usuário para este estabelecimento" />
                 </div>
                 <div className="form-group col-md-6">
-
+                    <Label>Senha (padrão)</Label>
                     <Field
                         required
                         name="password"

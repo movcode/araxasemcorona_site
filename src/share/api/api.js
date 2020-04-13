@@ -4,7 +4,7 @@ import StorageKeys from './storageKeys';
 const local = "http://localhost:3001/";
 const prod = "https://www.araxasemcorona.com.br/rest/";
 
-const dev = false;
+const dev = true;
 
 const BASE_URL = dev ? local : prod;
 const URL_API = `${BASE_URL}api/`;
