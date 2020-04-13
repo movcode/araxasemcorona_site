@@ -13,8 +13,10 @@ const dispatch = (success, result) => success
 const getInApi = async () => await Api.get(Api.url.establishment, true);
 const storeInApi = async data => await Api.post(Api.url.establishment, data, false);
 const removeInApi = async id => await Api.remove(Api.url.establishment, id, true);
-const updateInApi = async (id, params) => await Api.put(Api.url.establishment, id, params, false);
+const updateInApi = async (id, params) => await Api.put(Api.url.establishment, id, params, true);
 const approvedInApi = async (id, params) => await Api.put(Api.url.approved, id, params, true);
+const authInApi = async credential => await Api.post(Api.url.auth_establishment, credential, false);
+const updateAuthInApi = async (id, params) => await Api.put(Api.url.auth_establishment, id, params, false);
 
 
 function* list() {
@@ -79,6 +81,7 @@ function* update(ac) {
         return yield Alert.Update(false);
     }
 }
+
 function* approved(ac) {
     const { payload } = ac;
     yield console.log(payload)
@@ -96,6 +99,32 @@ function* approved(ac) {
     }
 }
 
+function* auth(ac) {
+    const { payload } = ac;
+    try {
+        const resp = yield call(authInApi, payload);
+        if (resp.status === 200) {
+            return yield dispatch(true, resp.data);
+        }
+    } catch (err) {
+        yield dispatch(false, err.response.data.error);
+        return yield Alert.Custom(false, err.response.data.error);
+    }
+}
+
+function* update_auth(ac) {
+    const { payload } = ac;
+    try {
+        const resp = yield call(updateAuthInApi, payload.id, payload.params);
+        if (resp.status === 200) {
+            console.log(resp.data)
+            return yield Alert.Custom(true, resp.data);
+        }
+    } catch (err) {
+        yield dispatch(false, Msgs(false).update)
+        return yield Alert.Custom(false, err.response.data.error);
+    }
+}
 
 export default function* observer() {
     yield takeLatest(ActionMap.establishment.list, list);
@@ -103,4 +132,6 @@ export default function* observer() {
     yield takeLatest(ActionMap.establishment.remove, remove);
     yield takeLatest(ActionMap.establishment.update, update);
     yield takeLatest(ActionMap.establishment.approved, approved);
+    yield takeLatest(ActionMap.establishment.auth, auth);
+    yield takeLatest(ActionMap.establishment.update_auth, update_auth);
 }

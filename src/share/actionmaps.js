@@ -14,6 +14,8 @@ export default ({
         remove: "@@ESTABLISHMENT/DELETE",
         update: "@@ESTABLISHMENT/UPDATE",
         approved: "@@ESTABLISHMENT/APPROVED",
+        auth: "@@ESTABLISHMENT/AUTH",
+        update_auth: "@@ESTABLISHMENT/UPDATE_AUTH",
     },
     delivery: {
         list: "@@DELIVERY/LIST",

@@ -4,7 +4,7 @@ import StorageKeys from './storageKeys';
 const local = "http://localhost:3001/";
 const prod = "https://www.araxasemcorona.com.br/rest/";
 
-const dev = false;
+const dev = true;
 
 const BASE_URL = dev ? local : prod;
 const URL_API = `${BASE_URL}api/`;
@@ -25,6 +25,7 @@ export default ({
         sector: `${URL_API}sector`,
         categorie: `${URL_API}categorie`,
         establishment: `${URL_API}establishment`,
+        auth_establishment: `${URL_API}auth/establishment`,
         deliveryman: `${URL_API}deliveryman`,
         user: `${URL_API}user`,
         icons_sectors: `${URL_API}icons`,

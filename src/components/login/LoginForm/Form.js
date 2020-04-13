@@ -14,18 +14,17 @@ const LoginForm = ({ handleSubmit }) => {
             <Field
                 name="email"
                 component="input"
-                type="email"
+                type="text"
                 className="form-control"
-                placeholder="Email"
+                placeholder="Email"                
                 required />
             <Field
                 name="password"
                 component="input"
                 type="password"
-                className="form-control"
+                className="form-control"                
                 placeholder="Senha"
                 required />
-
 
             <button
                 className="btn btn-light btn-block"

@@ -15,7 +15,7 @@ import {
     HeaderContent,
     Title
 } from './style';
-import Row  from '../../components/share_components/row';
+import Row from '../../components/share_components/row';
 import Center from '../share_components/center';
 import { Api } from '../../share/api';
 
@@ -24,7 +24,7 @@ export default props => {
     const location = useLocation();
     const [show, _show] = useState(false);
     const [establishment, _establishment] = useState();
-
+    const textWhats = "Olá, sei que agora é o momento de juntos lutarmos contra a pandemia do coronavirus, e encontrei seu contato no araxasemcorona.com.br. Estou precisando de você, para que eu possa fazer a minha parte e ficar em casa. Pode me ajudar?";
 
     useEffect(() => {
         const path = location.pathname.split("/");
@@ -32,7 +32,7 @@ export default props => {
 
         const fetch = async () => {
             const resp = await Api.get(`${Api.url.establishment}/${id}`, false);
-            resp.data && _establishment(resp.data);            
+            resp.data && _establishment(resp.data);
         }
 
         if (id && !show) {
@@ -70,7 +70,7 @@ export default props => {
                                         <Itens >
                                             <div><img src="/img/ic_phone.png" alt="" /> {establishment.whatsapp}</div>
                                         </Itens>
-                                       
+
                                         <Itens >
                                             {establishment.social &&
                                                 <Href href={establishment.social} target="_blank">
@@ -84,7 +84,7 @@ export default props => {
                                     </Row>
 
                                     <Row>
-                                        <Href href={`https://api.whatsapp.com/send?phone=+55` + establishment.whatsapp}
+                                        <Href href={`https://api.whatsapp.com/send?phone=+55` + establishment.whatsapp + `?text=${textWhats}`}
                                             target="_blank"
                                             style={{ marginTop: "20px" }}
                                             className="btn btn-outline-light">Entrar em contato</Href>
