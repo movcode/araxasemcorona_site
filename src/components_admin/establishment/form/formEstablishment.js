@@ -9,8 +9,6 @@ import Upload from '../../../share/upload';
 import { Api } from '../../../share/api';
 
 
-
-
 const Form = ({ handleSubmit, status }) => {
     const form = useSelector(state => state.form.formEstablishmentAdmin);
     const { response } = useSelector(state => state.response);
@@ -137,7 +135,6 @@ const Form = ({ handleSubmit, status }) => {
             </Row>
 
 
-
             <Row>
                 <div className="form-group col-md-6">
 
@@ -162,29 +159,38 @@ const Form = ({ handleSubmit, status }) => {
                 </div>
             </Row>
 
-
             <Row>
                 <div className="form-group col-md-6">
-                    <Label>Digite o seu WhatsApp:</Label>
-                    <Field name="whatsapp"
-                        required
+                    <Label>Digite o seu Telefone:</Label>
+                    <Field name="phone"
                         className="form-control"
-                        placeholder="Digite aqui o número do seu Whatsapp"
+                        placeholder="Digite aqui o número do seu Telefone"
                         component="input"
                         text="text"
                         {...MaskInput.phone}
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <Label>Instagram ou Face:</Label>
-                    <Field name="social"
+                    <Label>Digite o seu WhatsApp:</Label>
+                    <Field name="whatsapp"
                         className="form-control"
-                        placeholder="Digite aqui o seu Instagram ou FB"
+                        placeholder="Digite aqui o número do seu Whatsapp"
                         component="input"
                         text="text"
+                        {...MaskInput.whats}
                     />
                 </div>
+
             </Row>
+            <div className="form-group">
+                <Label>Instagram ou Face:</Label>
+                <Field name="social"
+                    className="form-control"
+                    placeholder="Digite aqui o seu Instagram ou FB"
+                    component="input"
+                    text="text"
+                />
+            </div>
             <div className="form-group">
                 <Upload mTop="20" title="Seleciona a marca do estabelecimento" img={imgUpload} />
             </div>

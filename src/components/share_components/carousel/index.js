@@ -3,15 +3,15 @@ import React from 'react';
 import Carousel from '@brainhubeu/react-carousel';
 import '@brainhubeu/react-carousel/lib/style.css';
 
-const Icon = styled.img`
+const Icon = styled.div`
+ padding:5px;
+ border-radius:50%;
 border:1px solid #c4c4c4;
-padding:5px;
-width:30px;
 color:#c4c4c4;
-height:30px;
+font-size:18px;
 cursor:pointer;
-background:#FFF;
-border-radius:50%;
+
+
 
 @media(max-width:1024px){
     display:none;
@@ -29,15 +29,15 @@ export default ({ children, sectors, pages }) => {
             <Carousel
                 infinite
                 addArrowClickHandler
-                arrowLeft={<Icon src="/img/back.svg" />}
-                arrowRight={<Icon src="/img/next.svg" />}
+                arrowLeft={<Icon className="ti-angle-left" />}
+                arrowRight={<Icon className="ti-angle-right" />}
                 slidesPerPage={pages}
                 dots={sectors ? true : false}
                 breakpoints={{
                     640: {
                         slidesPerPage: 2,
                         dots: true,
-                        centered: true,                        
+                        centered: true,
                         // autoPlay: 2000,
                         // animationSpeed: 1000,
                     }

@@ -10,6 +10,9 @@ export default {
     }),
 
     phone: createTextMask({
+        pattern: '(99) 9999-9999',
+    }),
+    whats: createTextMask({
         pattern: '(99) 99999-9999',
     }),
 

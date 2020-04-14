@@ -116,6 +116,16 @@ const Form = ({ handleSubmit }) => {
 
             <Row>
                 <div className="form-group col-md-6">
+                    <Label>Digite o seu Telefone:</Label>
+                    <Field name="phone"
+                        required
+                        className="form-control"
+                        placeholder="Digite aqui o número do seu Telefone"
+                        component="input"
+                        text="text"
+                        {...MaskInput.phone} />
+                </div>
+                <div className="form-group col-md-6">
                     <Label>Digite o seu WhatsApp:</Label>
                     <Field name="whatsapp"
                         required
@@ -123,19 +133,19 @@ const Form = ({ handleSubmit }) => {
                         placeholder="Digite aqui o número do seu Whatsapp"
                         component="input"
                         text="text"
-                        {...MaskInput.phone}
-                    />
+                        {...MaskInput.whatsapp} />
                 </div>
-                <div className="form-group col-md-6">
-                    <Label>Instagram ou Face:</Label>
-                    <Field name="social"
-                        className="form-control"
-                        placeholder="Digite aqui o seu Instagram ou FB"
-                        component="input"
-                        text="text"
-                    />
-                </div>
+
             </Row>
+            <div className="form-group">
+                <Label>Instagram ou Face:</Label>
+                <Field name="social"
+                    className="form-control"
+                    placeholder="Digite aqui o seu Instagram ou FB"
+                    component="input"
+                    text="text"
+                />
+            </div>
             <div className="form-group">
                 <Upload mTop="20" title="Seleciona a marca do estabelecimento" img={
                     !imgUpload

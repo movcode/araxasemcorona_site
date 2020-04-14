@@ -2,7 +2,7 @@ import React, { useLayoutEffect, useState } from 'react';
 import { Route } from 'react-router-dom';
 
 import { StorageKeys, Api } from '../share/api';
-import Login from '../components_admin/login';
+// import Login from '../components_admin/login';
 
 const Cnpt = (props, Component, storage) => (<Component {...props} storage={storage} />);
 
@@ -40,7 +40,7 @@ export default ({ component: Component, ...rest }) => {
             return Cnpt(p, Component, StorageKeys)
         } else {
             if (isAuth !== null) {
-                return < Login />
+                return window.location.href="/admin/bugani/login"
             }
         }
     }} />

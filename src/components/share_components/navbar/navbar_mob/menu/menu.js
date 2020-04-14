@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { MenuBox } from './style';
+import { MenuBox ,Links} from './style';
 import { NavLink,SignLink } from '../../navbar_style';
 import { action } from '../../../../../store/menuRedux';
 
@@ -14,10 +14,12 @@ const Menu = ({ logo }) => {
     return (<MenuBox show={show} >
         
         <div className="col-5">
-            {logo && <img src={logo} alt="logo" />}
+           <a href="/" >
+           {logo && <img src={logo} alt="logo" />}
+           </a>
         </div>
-
-        <div className="d-flex flex-column justify-content-center align-items-center" style={{ height: "100vh" }}>
+        
+        <Links className="d-flex flex-column align-items-center" style={{ height: "100vh" }}>
             <NavLink onClick={handleMenu} to="/">HOME</NavLink>
 
             <br />
@@ -32,10 +34,9 @@ const Menu = ({ logo }) => {
             <br />
             <NavLink onClick={handleMenu} to="/registro">REGISTRAR</NavLink>
             <br />
-
             <NavLink onClick={handleMenu} to="/login"><SignLink>LOGIN</SignLink></NavLink>
 
-        </div>
+        </Links>
 
     </MenuBox>);
 }

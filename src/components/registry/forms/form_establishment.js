@@ -127,35 +127,45 @@ const Form = ({ handleSubmit, sectors }) => {
 
             <Row>
                 <div className="form-group col-md-6">
-                    <label style={{ color: "#000" }}>Digite o seu WhatsApp:</label>
-                    <Field name="whatsapp"
+                    <label style={{ color: "#000" }}>Digite o seu Telefone:</label>
+                    <Field name="phone"
                         className="form-control"
-                        placeholder="Digite aqui o número do seu Whatsapp"
+                        placeholder="Digite aqui o número do seu Telefone"
                         component="input"
                         text="text"
                         {...MaskInput.phone}
                     />
                 </div>
-
                 <div className="form-group col-md-6">
-                    <label style={{ color: "#000" }}>Instagram ou Facebook:</label>
-                    <Field name="social"
+                    <label style={{ color: "#000" }}>Digite o seu WhatsApp (com o 9):</label>
+                    <Field name="whatsapp"
                         className="form-control"
-                        placeholder="Cole o link do seu Instagram ou Facebook"
+                        placeholder="Digite aqui o número do seu Whatsapp"
                         component="input"
                         text="text"
+                        {...MaskInput.whats}
                     />
                 </div>
             </Row>
             <div className="form-group">
-            <Upload mTop="20" title="Insira a marca do seu negócio clicando aqui" img={imgUpload} />
+                <label style={{ color: "#000" }}>Instagram ou Facebook:</label>
+                <Field name="social"
+                    className="form-control"
+                    placeholder="Cole o link do seu Instagram ou Facebook"
+                    component="input"
+                    text="text"
+                />
+            </div>
+
+            <div className="form-group">
+                <Upload mTop="20" title="Insira a marca do seu negócio clicando aqui" img={imgUpload} />
             </div>
 
 
 
             <div className="form-group">
                 <Field name="description"
-                    required                    
+                    required
                     className="form-control"
                     placeholder="Descreva  sobre o seu negócio, informações sobre os seus produtos e seus diferenciais de atendimento."
                     component="textarea"

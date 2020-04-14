@@ -14,3 +14,7 @@ display:${props => props.show === 1 ? "block" : "none"};
 padding:20px;
 color:#fff;
 `;
+
+export const Links = styled.div`
+margin-top:120px
+`;

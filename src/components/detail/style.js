@@ -9,6 +9,13 @@ z-index:30000;
 position:fixed;
 display:${p => p.active === 1 ? 'block' : "none"};
 background-color: rgba(0,0,0,.9);
+`;
+
+export const Icon = styled.div`
+font-weight:bold;
+float:left;
+margin-right:5px;
+font-size:20px;
 
 `;
 
@@ -73,4 +80,23 @@ float:right;
 margin:20px;
 cursor:pointer;
 z-index:30001;
+`;
+
+export const ButtonShare = styled.div`
+cursor:pointer;`;
+
+export const BoxShare = styled.div`
+width:100%;
+height:100vh;
+position:absolute;
+z-index:30002;
+position:fixed;
+display:${p => p.active === 1 ? 'block' : "none"};
+background-color: black;
+`;
+
+export const BoxButtonsShare = styled.div`
+width:100%;
+height:100%;
+
 `;
