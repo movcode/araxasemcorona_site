@@ -20,12 +20,14 @@ const DropZone = ({ title, mTop, img, logo, icon }) => {
     }, [response]);
 
     const isImage = file => {
-        switch (file) {
-            case "image/jpg": return true;
-            case "image/jpeg": return true;
-            case "image/png": return true;
-            default: return false;
-        }
+        const ext = file.name.split(".").pop();
+
+        const alowedExt = ['jpg', 'jpeg', 'png', 'JPEG'];
+        const alowedMime = ['image/jpg', 'image/jpeg', 'image/png'];
+
+        if (!alowedExt.includes(ext) || !alowedMime.includes(file.type)) return false;
+
+        return true;
     }
 
 
@@ -39,7 +41,7 @@ const DropZone = ({ title, mTop, img, logo, icon }) => {
     const prepareImg = file => {
         const getfile = file[0];
 
-        if (!isImage(getfile.type)) {
+        if (!isImage(getfile)) {
             swal({
                 title: "Error!",
                 text: "Arquivo inválido! ",
@@ -47,15 +49,6 @@ const DropZone = ({ title, mTop, img, logo, icon }) => {
             });
             return false;
         }
-
-        // if (getfile.size > 1024000) {
-        //     swal({
-        //         title: "Imagem muito grande",
-        //         text: "Selecione uma imagem um pouco menor",
-        //         icon: "error",
-        //     });
-        //     return false;
-        // }
 
 
         var reader = new FileReader();
@@ -67,7 +60,7 @@ const DropZone = ({ title, mTop, img, logo, icon }) => {
                 if (logo || icon) {
                     upload(getfile);
                 } else {
-                    if (this.width < 500) {
+                    if (this.width < 500 || this.height < 500) {
                         swal({
                             title: "Imagem pequena!",
                             text: "Seleciona uma imagem do seguinte tamanho: 500px x 500px ",

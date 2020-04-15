@@ -16,9 +16,11 @@ export default ({ establishments }) => {
                             <Link to={`/estabelecimentos/${establishment._id}`}>
                                 <Box >
                                     <BoxFigure >
+                                      
+
                                         <Figure src={establishment.img} />
                                     </BoxFigure>
-                                    <Name className="text-truncate">{establishment.name}</Name>
+                                    <Name className="crop-text-2">{establishment.name}</Name>
                                 </Box>
                             </Link>
                         }

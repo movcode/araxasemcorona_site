@@ -38,12 +38,13 @@ width:100%;
 
 export const Name = styled.p`
 color:#000;
-width:100%;
+-webkit-line-clamp: 2;
+overflow : hidden;
+  text-overflow: ellipsis;
 margin-top:5px;
 text-align:center;
-white-space: nowrap;
-padding:5px;
 font-weight:bold;
+overflow:hidden;
 @media(max-width:1024px){
     font-size:12px;
 }

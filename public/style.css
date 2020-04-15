@@ -2,21 +2,31 @@
     font-family: AvenirRegular;
     src: url(./fonts/AvenirNextCyr/AvenirNextCyr-Regular.woff);
 }
+
 @font-face {
     font-family: AvenirThin;
     src: url(./fonts/AvenirNextCyr/AvenirNextCyr-Thin.woff);
 }
+
 @font-face {
     font-family: AvenirBold;
     src: url(./fonts/AvenirNextCyr/AvenirNextCyr-Bold.woff);
 }
+
 @font-face {
     font-family: AvenirLight;
     src: url(./fonts/AvenirNextCyr/AvenirNextCyr-UltraLight.woff);
+}
+
+.crop-text-2 {
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
 }
 
 body, html {
     margin: 0;
     height: 100%;
 }
-
