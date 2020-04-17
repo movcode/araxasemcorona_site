@@ -62,7 +62,7 @@ const Login = props => {
 
     return (<div>
         {load && <Load />}
-        <Menu logo="https://www.araxasemcorona.com.br/rest/images/upload/0d54ed423d9f714eea918fa2.png" />
+        <Menu logo="https://www.araxasemcorona.com.br/rest/images/logo_default.png" />
 
         <div style={{ paddingTop: '120px' }}>
             <Center>

@@ -20,8 +20,7 @@ export default props => {
 
     const FormName = "formEstablishmentAdmin";
 
-    const store = (data) => {
-        console.log(data);
+    const store = (data) => {        
         
         if (storeOrEdit !== "editar") {
             dispatch(action.store(data))

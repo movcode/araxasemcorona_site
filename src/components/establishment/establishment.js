@@ -21,6 +21,10 @@ const Establishment = ({ sectors }) => {
     }, [sectors]);
 
     useEffect(() => {
+        _establishmentFiltered(false);        
+    }, [categories, establishments])
+
+    useEffect(() => {
         if (!establishments && sectors) {
             const all = [];
             sectors.map(s => s.categories
@@ -38,7 +42,6 @@ const Establishment = ({ sectors }) => {
             e.name.toLowerCase().indexOf(text.toLowerCase()) >= 0
         );
         _establishmentFiltered(filtered);
-
     }
 
     return (

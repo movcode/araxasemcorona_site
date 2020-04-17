@@ -85,7 +85,7 @@ const Form = ({ handleSubmit, status }) => {
 
             <Row>
                 <div className="form-group col-md-6">
-                    <Label>Usuário (padrão)</Label>
+                    <Label>Usuário</Label>
                     <Field
                         required
                         name="email"
@@ -95,7 +95,7 @@ const Form = ({ handleSubmit, status }) => {
                         placeholder="Digite um usuário para este estabelecimento" />
                 </div>
                 <div className="form-group col-md-6">
-                    <Label>Senha (padrão)</Label>
+                    <Label>Senha</Label>
                     <Field
                         required
                         name="password"
@@ -123,7 +123,7 @@ const Form = ({ handleSubmit, status }) => {
                 <div className="form-group col-md-6">
                     <Field name="categorie"
                         required
-                        className="form-control"
+                        className="form-control"                        
                         component="select">
                         <option value="" disabled >Selecione uma categoria </option>
                         {categories && categories.map(c =>
