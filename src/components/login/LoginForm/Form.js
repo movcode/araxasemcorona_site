@@ -1,17 +1,11 @@
-import React, { useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { Field, reduxForm, change } from 'redux-form'
+import React from 'react'
+import { useSelector } from 'react-redux'
+import { Field, reduxForm } from 'redux-form'
 import './style.css'
 
 
 const LoginForm = ({ handleSubmit }) => {
     const form = useSelector(state => state.form.formLogin)
-    
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(change('formLogin', 'email', 'teste@gmail.com'));
-        dispatch(change('formLogin', 'password', '32'));
-    }, [dispatch]);
 
     return (
         <form onSubmit={handleSubmit} className="col-md-4 form-signin" >
