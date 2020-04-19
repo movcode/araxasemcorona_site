@@ -4,7 +4,7 @@ import Menu from '../share_components/navbar';
 import * as Component from './components';
 import { Api } from '../../share/api';
 import Load from '../../components/share_components/load';
-import Detail from '../detail';
+
 
 
 var Scroll = require('react-scroll');
@@ -38,8 +38,7 @@ const Wrap = ({ page }) => {
 
     return (
         <>
-            {!sectors && <Load />}
-            <Detail />
+            {!sectors && <Load />}       
             
             <Menu logo={contents && contents.logo} />
 

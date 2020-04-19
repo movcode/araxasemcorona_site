@@ -13,7 +13,7 @@ export default ({ establishments }) => {
 
                     <div className="col-md-2 col-4" key={establishment._id}>
                         {establishment.img &&
-                            <Link to={`/estabelecimentos/${establishment._id}`}>
+                            <Link to={`/estabelecimento/${establishment._id}`}>
                                 <Box >
                                     <BoxFigure >
                                       

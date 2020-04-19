@@ -20,8 +20,8 @@ export default props => {
 
     const FormName = "formEstablishmentAdmin";
 
-    const store = (data) => {        
-        
+    const store = (data) => {
+
         if (storeOrEdit !== "editar") {
             dispatch(action.store(data))
         } else {
@@ -32,16 +32,18 @@ export default props => {
         dispatch(reset(FormName));
     }
 
-    const remove = data => {        
+    const remove = data => {
         dispatch(action.remove(data._id));
         scroll.scrollToTop();
     }
 
-    const editForm = data => {        
+    const editForm = data => {
         dispatch(change(FormName, "id", data._id));
         dispatch(change(FormName, "name", data.name));
         dispatch(change(FormName, "email", data.email));
         dispatch(change(FormName, "password", data.password));
+        dispatch(change(FormName, "new_email", data.email));
+        dispatch(change(FormName, "new_password", data.password));
         dispatch(change(FormName, "sector", data.sector));
         dispatch(change(FormName, "categorie", data.categorie));
         dispatch(change(FormName, "delivery", data.delivery));

@@ -72,6 +72,14 @@ const Form = ({ handleSubmit, status }) => {
                 component="input"
                 type="hidden"
                 value="false" />
+            <Field
+                name="email"
+                component="input"
+                type="hidden" />
+            <Field
+                name="password"
+                component="input"
+                type="hidden" />
 
             <div className="form-group ">
                 <Field
@@ -88,7 +96,7 @@ const Form = ({ handleSubmit, status }) => {
                     <Label>Usuário</Label>
                     <Field
                         required
-                        name="email"
+                        name="new_email"
                         component="input"
                         className="form-control"
                         type="text"
@@ -98,7 +106,7 @@ const Form = ({ handleSubmit, status }) => {
                     <Label>Senha</Label>
                     <Field
                         required
-                        name="password"
+                        name="new_password"
                         component="input"
                         className="form-control"
                         type="password"
@@ -123,7 +131,7 @@ const Form = ({ handleSubmit, status }) => {
                 <div className="form-group col-md-6">
                     <Field name="categorie"
                         required
-                        className="form-control"                        
+                        className="form-control"
                         component="select">
                         <option value="" disabled >Selecione uma categoria </option>
                         {categories && categories.map(c =>

@@ -27,6 +27,7 @@ export default ({
         establishment: `${URL_API}establishment`,
         auth_establishment: `${URL_API}auth/establishment`,
         deliveryman: `${URL_API}deliveryman`,
+        deliverymans: `${URL_API}deliverymans`,
         user: `${URL_API}user`,
         icons_sectors: `${URL_API}icons`,
         approved: `${URL_API}establishment/approved`,

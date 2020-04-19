@@ -12,11 +12,11 @@ export default (props) => (
             <Route exact path="/" children={<Wrap page="home" />} />
             <Route path="/sobre" children={<Wrap page="about" />} />
             <Route path="/contato" children={<Wrap page="contact" />} />
-            <Route path="/estabelecimentos" children={<Wrap page="establishment" />} />
-            <Route path="/estabelecimentos/:id" children={<Wrap page="establishment" />} />
+            <Route path="/estabelecimentos" children={<Wrap page="establishment" />} />          
             <Route path="/noticias" children={<Wrap page="notices" />} />
             <Route path="/registro" children={<Wrap page="registry" />} />
             <Route path="/login" component={Components.LoginEstab} />
+            <Route path="/estabelecimento/:id" component={Components.Detail} />
 
             {/* Admin */}
             <Route path={PATH_ADMIN + "login"} component={Components.Login} />

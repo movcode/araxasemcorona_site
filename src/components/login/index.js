@@ -8,8 +8,8 @@ import { Title } from '../../components/share_components/global_style'
 import Center from '../share_components/center';
 import Menu from '../share_components/navbar';
 import FormEstablishment from './EstablishmentForm';
+import ListDeliverymans from './ListDeliveryman';
 import { change } from 'redux-form';
-
 
 
 const Login = props => {
@@ -26,7 +26,7 @@ const Login = props => {
         dispatch(change(FormName, "email", data.email));
         dispatch(change(FormName, "password", data.password));
         dispatch(change(FormName, "new_email", data.email));
-        dispatch(change(FormName, "new_password", data.password));        
+        dispatch(change(FormName, "new_password", data.password));
         dispatch(change(FormName, "delivery", data.delivery));
         dispatch(change(FormName, "hourWork", data.hourWork));
         dispatch(change(FormName, "whatsapp", data.whatsapp));
@@ -44,9 +44,8 @@ const Login = props => {
             const data = response.result;
             setDatas(data)
         }
-        
-    }, [response, setDatas]);
 
+    }, [response, setDatas]);
 
 
     const login = credentials => {
@@ -66,20 +65,33 @@ const Login = props => {
 
         <div style={{ paddingTop: '120px' }}>
             <Center>
-                <Title color="white" left="12px" sizeM="30px" size="20px">Alterar informações do estabelecimento</Title>
+                <Title color="white" left="12px" sizeM="30px" size="20px">Alterar informações do estabelecimento e visualizar entregadores</Title>
             </Center>
 
             <Center>
-                {logged
-                    && <div className="col-md-8" >
-                        <FormEstablishment onSubmit={update} style={{ marginBottom: "80px" }} status="editar" />
-                    </div>
-                }
-
                 {!logged && <div className="col-md-9">
                     <LoginForm onSubmit={login} />
                 </div>}
             </Center>
+
+            <div >
+
+                {logged &&
+                    <div className="col-md-12" style={{marginBottom:'40px',marginTop:'10px'}}>
+                        <ListDeliverymans />
+                    </div>
+                }
+                <Center>
+                    {logged
+                        &&
+                        <div className="col-md-8" >
+                            <FormEstablishment onSubmit={update} style={{ marginBottom: "80px" }} status="editar" />
+                        </div>
+                    }
+
+                </Center>
+
+            </div>
 
         </div>
 

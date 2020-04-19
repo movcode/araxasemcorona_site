@@ -1,14 +1,34 @@
 import styled from 'styled-components';
+import { PrimaryColor } from '../../share/theme';
 
-
-export const DetailBox = styled.div`
+export const BoxDetail = styled.div`
 width:100%;
-height:100vh;
+overflow:hidden;
+
+`;
+
+export const Menu = styled.div`
+background:${PrimaryColor};
+width:100%;
+height:auto;
+overflow:hidden;
+padding-top:10px;
+padding-bottom:10px;
 position:absolute;
-z-index:30000;
 position:fixed;
-display:${p => p.active === 1 ? 'block' : "none"};
-background-color: rgba(0,0,0,.9);
+z-index:3000;
+top:0;
+`;
+
+
+
+export const Close = styled.div`
+width:40px;
+float:right;
+position:absolute;
+right:5px;
+top:20px;
+cursor:pointer;
 `;
 
 export const Icon = styled.div`
@@ -20,14 +40,9 @@ font-size:20px;
 `;
 
 export const Container = styled.div`
-@media(max-width:1024px){
-    margin-left:10px;
-    margin-top:60px;
-}
-@media(min-width:1024px){
-    margin-top:180px;
-}
-
+width:100%;
+margin-top:79px;
+overflow:hidden;
 `;
 
 export const Href = styled.a`
@@ -40,20 +55,24 @@ text-decoration:none;
 `;
 
 export const Header = styled.div`
+width:100%;
+position:fixed;
+padding-top:20px;
+background:${PrimaryColor};
 border-bottom:1px solid #666;
-margin-bottom:20px;
-padding-bottom:20px;
+padding-bottom:40px;
 `;
-export const HeaderContent = styled.div`
 
-`;
 
 export const BoxFigure = styled.div`    
     margin:0;
-    padding-left:0;
-    padding-top:0;
-    padding-bottom:0;    
-    border-right:1px solid #666;
+    @media (min-width:1024px) {
+     padding-right:20px;
+    border-right:1px solid #666;    
+    }
+    @media (max-width:1024px) {
+    padding:0;
+    }
 `;
 
 export const Figure = styled.img`    
@@ -71,16 +90,14 @@ width:100%;
 margin-bottom:8px;
 `;
 
-export const Close = styled.div`
-width:40px;
-height:auto;
-position:absolute;
-right:0;
-float:right;
-margin:20px;
-cursor:pointer;
-z-index:30001;
+export const Description = styled.div`
+width:100%;
+margin-top:320px;
+padding-top:40px;
+text-align:justify;
+color:#fff;
 `;
+
 
 export const ButtonShare = styled.div`
 cursor:pointer;`;
@@ -91,7 +108,6 @@ height:100vh;
 position:absolute;
 z-index:30002;
 position:fixed;
-display:${p => p.active === 1 ? 'block' : "none"};
 background-color: black;
 `;
 
